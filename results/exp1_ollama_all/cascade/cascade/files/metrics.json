@@ -1,0 +1,182 @@
+{
+  "case_name": "files",
+  "mode": "cascade",
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "runtime_seconds": 22.199921792,
+  "llm_calls": 6,
+  "initial_issue_count": 1,
+  "final_issue_count": 1,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        "file",
+        "filesystemelement",
+        "folder"
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571428571428571,
+      "true_positives": [
+        [
+          "file",
+          "extension"
+        ],
+        [
+          "file",
+          "size"
+        ],
+        [
+          "filesystemelement",
+          "name"
+        ]
+      ],
+      "false_positives": [
+        [
+          "filesystemelement",
+          "extension"
+        ]
+      ],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement",
+          "--|>",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "--|>",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "o--",
+          null
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_relaxed": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement"
+        ],
+        [
+          "filesystemelement",
+          "folder"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        "file",
+        "filesystemelement",
+        "folder"
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571428571428571,
+      "true_positives": [
+        [
+          "file",
+          "extension"
+        ],
+        [
+          "file",
+          "size"
+        ],
+        [
+          "filesystemelement",
+          "name"
+        ]
+      ],
+      "false_positives": [
+        [
+          "filesystemelement",
+          "extension"
+        ]
+      ],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement",
+          "--|>",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "--|>",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "o--",
+          null
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_relaxed": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement"
+        ],
+        [
+          "filesystemelement",
+          "folder"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    }
+  },
+  "average_f1": 0.9642857142857143,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

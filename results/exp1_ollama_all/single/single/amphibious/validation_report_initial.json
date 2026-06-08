@@ -1,0 +1,38 @@
+{
+  "requirements": "This system represents different types of vehicles. \nA Vehicle has a position, a speed and a maximum speed. Besides, it has an environment (with a value among “land”, “water” and “air”). Finally, it can move for a given time. Those are the features of a generic vehicle.\nThen, we have land vehicles and marine vehicles as specific types of vehicles, where both have all the same features as a vehicle. Finally, an amphibious vehicle can be both a land vehicle and a marine vehicle. ",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "class",
+      "message": "The intermediate UML model does not contain any classes, which contradicts the requirements and PlantUML output.",
+      "responsible_agent": "concept",
+      "target": "Intermediate UML model",
+      "evidence": "Requirements mention different types of vehicles such as Vehicle, LandVehicle, MarineVehicle, and AmphibiousVehicle. The PlantUML output also references these specific vehicle types.",
+      "suggestions": [
+        "Add classes for Vehicle, LandVehicle, MarineVehicle, and AmphibiousVehicle to the intermediate UML model."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "concept",
+      "description": "The intermediate UML model does not contain any classes, which contradicts the requirements and PlantUML output.",
+      "evidence_from_requirements": "Requirements mention different types of vehicles such as Vehicle, LandVehicle, MarineVehicle, and AmphibiousVehicle. The PlantUML output also references these specific vehicle types.",
+      "suggested_fix": "Add classes for Vehicle, LandVehicle, MarineVehicle, and AmphibiousVehicle to the intermediate UML model."
+    }
+  ],
+  "validated_model": {
+    "classes": [],
+    "relationships": [],
+    "metadata": {}
+  },
+  "metadata": {
+    "validator_notes": "..."
+  },
+  "summary": {
+    "issue_count": 1,
+    "critical_issue_count": 1,
+    "noncritical_issue_count": 0
+  },
+  "is_valid": false
+}

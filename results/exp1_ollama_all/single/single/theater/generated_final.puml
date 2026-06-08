@@ -1,0 +1,47 @@
+@startuml
+actor Person
+actor Author
+actor Participant
+
+class Theater {
+    -String location
+    +List<Play> plays // A theater can have many plays
+}
+
+class Play {
+    -String name
+    -Time beginTime
+    -Time endTime
+    -List<Author> authors // A play can be authored by multiple authors
+    -List<Session> sessions // A play has many sessions
+}
+
+class Session {
+    -Time startTime
+    -Time endTime
+    +Play play // A session belongs to a specific play
+    +Participant participant // A participant acts in a specific session of a play
+}
+
+class Author {
+    -String name
+    +List<Play> authoredPlays // An author can write multiple plays
+}
+
+class Participant {
+    -String name
+    +List<Session> actingSessions // A participant acts in many sessions
+}
+
+Person ..> Author
+Person ..> Participant
+
+Author ..> Play
+Participant ..> Session
+Participant ..> Play
+
+Theater ..> Play
+Play ..> Session
+Play ..> Author
+
+@enduml

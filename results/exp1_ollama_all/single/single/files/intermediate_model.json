@@ -1,0 +1,130 @@
+{
+  "classes": [
+    {
+      "name": "FileSystemElement",
+      "description": null,
+      "attributes": [
+        {
+          "name": "String name",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Folder",
+      "description": null,
+      "attributes": [
+        {
+          "name": "FileSystemElement[] children",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "File",
+      "description": null,
+      "attributes": [
+        {
+          "name": "int size",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "String extension",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Folder <<aggregates>> FileSystemElement",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "File <<aggregates>> FileSystemElement",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "User -> FileSystemElement",
+          "data_type": "create a file or folder",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "create a file or folder"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "filesystemelement",
+      "target": "folder",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "filesystemelement",
+      "target": "file",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

@@ -1,0 +1,122 @@
+{
+  "classes": [
+    {
+      "name": "CleaningRobot",
+      "description": "A specific type of robot that performs cleaning tasks.",
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Location",
+      "description": "Represents the location where a task execution occurs (corridors or rooms).",
+      "attributes": [
+        {
+          "name": "type",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Robot",
+      "description": "Represents robots that have an ID and can perform tasks.",
+      "attributes": [
+        {
+          "name": "id",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Task",
+      "description": "Represents a task with an ID and can be performed by robots.",
+      "attributes": [
+        {
+          "name": "id",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "TaskExecution",
+      "description": "Represents the execution of a task with an ID, start time and location.",
+      "attributes": [
+        {
+          "name": "id",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "startTime",
+          "data_type": "DateTime",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "DateTime"
+        },
+        {
+          "name": "location",
+          "data_type": "Location",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Location"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "TransportRobot",
+      "description": "A specific type of robot that performs transport tasks.",
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [],
+  "metadata": {
+    "source": "concept_agent",
+    "requirements": "This model represents robots in charge of performing tasks.\nThere are robots that have an id. Robots can be of type cleaning robot and transport robot. Robots can\nperform tasks, which have an id. When a robot performs a task, the task execution is recorded. A\ntask execution has an id, a start time and a location. The location can be either corridors or rooms.",
+    "integrated": true
+  }
+}

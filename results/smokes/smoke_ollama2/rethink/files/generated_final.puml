@@ -1,0 +1,14 @@
+@startuml
+class File {
+  + extension: String
+  + size: Integer
+  + name: string
+}
+class FileSystemElement {
+  + name: String
+  + extension: string
+}
+class Folder {
+}
+Folder "1" o-- "*" FileSystemElement : contains
+@enduml

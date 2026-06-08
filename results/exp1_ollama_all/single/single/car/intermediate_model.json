@@ -1,0 +1,330 @@
+{
+  "classes": [
+    {
+      "name": "Wheel",
+      "description": null,
+      "attributes": [
+        {
+          "name": "diameter",
+          "data_type": "Float",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Float"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Engine",
+      "description": null,
+      "attributes": [
+        {
+          "name": "power",
+          "data_type": "Int",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Int"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Seats",
+      "description": null,
+      "attributes": [
+        {
+          "name": "size",
+          "data_type": "Int",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Int"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Model",
+      "description": null,
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "wheels",
+          "data_type": "List[Wheel]",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "List[Wheel]"
+        },
+        {
+          "name": "engine",
+          "data_type": "Engine",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Engine"
+        },
+        {
+          "name": "seats",
+          "data_type": "Seats",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Seats"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Make",
+      "description": null,
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "models",
+          "data_type": "List[Model]",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "List[Model]"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Car",
+      "description": null,
+      "attributes": [
+        {
+          "name": "model",
+          "data_type": "Model",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Model"
+        },
+        {
+          "name": "make",
+          "data_type": "Make",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Make"
+        },
+        {
+          "name": "numberPlate",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "wheels",
+          "data_type": "List[Wheel]",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "List[Wheel]"
+        },
+        {
+          "name": "engine",
+          "data_type": "Engine",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Engine"
+        },
+        {
+          "name": "seats",
+          "data_type": "Seats",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Seats"
+        },
+        {
+          "name": "User -> Car",
+          "data_type": "create a car",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "create a car"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "car",
+      "target": "wheel",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "car",
+      "target": "engine",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "car",
+      "target": "seat",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "make",
+      "target": "model",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "model",
+      "target": "wheel",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "model",
+      "target": "engine",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "model",
+      "target": "seat",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "car",
+      "target": "make",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "car",
+      "target": "model",
+      "relationship_type": "-->",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

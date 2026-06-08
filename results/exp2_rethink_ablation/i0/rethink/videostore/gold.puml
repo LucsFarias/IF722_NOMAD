@@ -1,0 +1,18 @@
+@startuml
+
+class VideoStore {
+  - name: String
+}
+
+class Client {
+  - name: String
+}
+
+class Movie {
+  - name: String
+}
+
+VideoStore "*" -- "*" Client : clients
+VideoStore "*" o-- "*"  Movie : rents
+
+@enduml

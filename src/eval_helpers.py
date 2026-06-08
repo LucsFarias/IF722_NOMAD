@@ -1,14 +1,49 @@
 import re
 from collections import defaultdict
 from collections import Counter
+from typing import Any, Dict, Optional
 
-import nltk
-from nltk.stem import WordNetLemmatizer
+try:
+    import nltk
+    from nltk.stem import WordNetLemmatizer
+except ImportError:  # pragma: no cover - optional dependency
+    nltk = None
+    WordNetLemmatizer = None
 
-nltk.download('wordnet')
-nltk.download('omw-1.4')
 
-lemmatizer = WordNetLemmatizer()
+class _FallbackLemmatizer:
+    def lemmatize(self, word: str) -> str:
+        word = word.lower().strip()
+        if len(word) > 3 and word.endswith("ies"):
+            return word[:-3] + "y"
+        if len(word) > 3 and word.endswith("ses"):
+            return word[:-2]
+        if len(word) > 3 and word.endswith("s") and not word.endswith("ss"):
+            return word[:-1]
+        return word
+
+
+def _build_lemmatizer():
+    if WordNetLemmatizer is None:
+        return _FallbackLemmatizer()
+
+    class _SafeWordNetLemmatizer:
+        def __init__(self):
+            self._lemmatizer = WordNetLemmatizer()
+
+        def lemmatize(self, word: str) -> str:
+            try:  # pragma: no cover - exercised only when nltk is installed locally
+                return self._lemmatizer.lemmatize(word)
+            except LookupError:
+                return _FallbackLemmatizer().lemmatize(word)
+
+    try:  # pragma: no cover - exercised only when nltk is installed locally
+        return _SafeWordNetLemmatizer()
+    except Exception:
+        return _FallbackLemmatizer()
+
+
+lemmatizer = _build_lemmatizer()
 
 def normalize_name(name: str, normalize: bool = True) -> str:
     """
@@ -315,3 +350,61 @@ def evaluate_uml(golden_uml, generated_uml, normalize: bool = True):
         'relationships_relaxed': evaluate_relationships(golden_rels, generated_rels, strict=False),
     }
 
+
+def plantuml_to_model(uml_code: str, normalize: bool = True):
+    """
+    Best-effort conversion from PlantUML text to UMLModel.
+    """
+    from src.schemas import UMLAttribute, UMLClass, UMLModel, UMLRelationship
+
+    normalized = preprocess_plantuml(uml_code)
+    classes_str, relationships_str = split_plantuml(normalized)
+
+    classes: Dict[str, UMLClass] = {}
+    current_class: Optional[str] = None
+    is_enum = False
+
+    for line in classes_str.splitlines():
+        stripped = line.strip()
+        class_match = re.match(r"(abstract\s+)?(enum\s+|class\s+)(\w+)", stripped)
+        if class_match:
+            current_class = normalize_name(class_match.group(3), normalize)
+            is_enum = class_match.group(2).strip() == "enum"
+            classes[current_class] = UMLClass(
+                name=class_match.group(3),
+                is_abstract=bool(class_match.group(1)),
+            )
+            continue
+
+        if not current_class or stripped.startswith("@") or stripped == "}":
+            continue
+
+        if is_enum:
+            attribute_name = stripped.split()[0]
+            attribute_type = "EnumValue"
+        else:
+            if ":" in stripped:
+                attribute_name, attribute_type = [part.strip() for part in stripped.split(":", 1)]
+            else:
+                attribute_name, attribute_type = stripped, None
+            if attribute_name and attribute_name[0] in ['+', '-', '#', '~']:
+                attribute_name = attribute_name[1:].strip()
+
+        if current_class not in classes:
+            classes[current_class] = UMLClass(name=current_class)
+        classes[current_class].attributes.append(
+            UMLAttribute(name=attribute_name, data_type=attribute_type)
+        )
+
+    relationships = []
+    for class_a, class_b, rel_type, assoc_class in parse_relationships(relationships_str, normalize):
+        relationships.append(
+            UMLRelationship(
+                source=class_a,
+                target=class_b,
+                relationship_type=rel_type,
+                label=assoc_class,
+            )
+        )
+
+    return UMLModel(classes=list(classes.values()), relationships=relationships)

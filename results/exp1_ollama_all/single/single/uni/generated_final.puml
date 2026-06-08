@@ -1,0 +1,28 @@
+@startuml
+class Course {
+    -name: String
+    -credits: Integer
+}
+
+class Professor {
+    +name: String
+}
+
+Course ..> Professor
+
+class Student {
+    +name: String
+}
+
+Student ..> Course
+Course ..> Student
+
+class Dormitory {
+    +name: String
+    +price: Double
+    +capacity: Int
+    -students: List<Student>
+}
+
+Dormitory ..> Student
+@enduml

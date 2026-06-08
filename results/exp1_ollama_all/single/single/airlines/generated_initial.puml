@@ -1,0 +1,30 @@
+@startuml
+actor Airline
+actor Airport
+actor City
+
+interface OperateCostDetails {
+    +cost: Float
+}
+
+class Airline {
+    -name: String
+    +operatingCosts: List[OperateCostDetails]
+}
+
+class Airport {
+    -code: String
+    -city: City
+    +airlines: List[Airline]
+}
+
+class City {
+    -name: String
+    +airports: List[Airport]
+}
+
+Airline ..> OperateCostDetails : cost
+Airport ..> Airline : airlines
+City ..> Airport : airports
+
+@enduml

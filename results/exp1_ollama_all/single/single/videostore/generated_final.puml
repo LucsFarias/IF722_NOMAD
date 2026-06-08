@@ -1,0 +1,21 @@
+@startuml
+actor Client
+actor Movie
+
+class VideoStore {
+    -string name
+    +void addClient(Client c)
+    +void removeClient(Client c)
+    +void rentMovie(Movie m, Client c)
+}
+
+VideoStore hasMany Client
+Client belongsTo VideoStore
+
+Client hasMany VideoStore
+VideoStore hasMany Client
+
+Movie hasMany VideoStore
+VideoStore hasMany Movie
+
+@enduml

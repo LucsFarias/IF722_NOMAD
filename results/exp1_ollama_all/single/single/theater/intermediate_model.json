@@ -1,0 +1,299 @@
+{
+  "classes": [
+    {
+      "name": "Theater",
+      "description": null,
+      "attributes": [
+        {
+          "name": "String location",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "List<Play> plays // A theater can have many plays",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Play",
+      "description": null,
+      "attributes": [
+        {
+          "name": "String name",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Time beginTime",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Time endTime",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "List<Author> authors // A play can be authored by multiple authors",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "List<Session> sessions // A play has many sessions",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Session",
+      "description": null,
+      "attributes": [
+        {
+          "name": "Time startTime",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Time endTime",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Play play // A session belongs to a specific play",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Participant participant // A participant acts in a specific session of a play",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Author",
+      "description": null,
+      "attributes": [
+        {
+          "name": "String name",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "List<Play> authoredPlays // An author can write multiple plays",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Participant",
+      "description": null,
+      "attributes": [
+        {
+          "name": "String name",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "List<Session> actingSessions // A participant acts in many sessions",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Person ..> Author",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Person ..> Participant",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Author ..> Play",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Participant ..> Session",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Participant ..> Play",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Theater ..> Play",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Play ..> Session",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Play ..> Author",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [],
+  "metadata": {}
+}

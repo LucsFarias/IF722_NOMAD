@@ -1,13 +1,4 @@
-from langchain_core.prompts import ChatPromptTemplate
-
-ATTRIBUTE_SPECIALIST_PROMPT = ChatPromptTemplate(
-    input_variables=[
-        "entity_name",
-        "entity_description",
-        "existing_attributes",
-        "requirements",
-    ],
-    template="""
+ATTRIBUTE_SPECIALIST_PROMPT_TEMPLATE = """
 You are a UML attribute extraction specialist. Your job is to infer domain attributes that are likely required by the text, but are not already present in the entity definition.
 
 Class name: {entity_name}
@@ -23,15 +14,28 @@ Instructions:
 4. If you can infer a likely type, include it. Otherwise set inferred_type to "string".
 5. Provide a confidence value between 0.0 and 1.0 for each attribute.
 6. Return ONLY valid JSON in this exact format:
-{
+{{
   "attributes": [
-    {
+    {{
       "name": "...",
       "inferred_type": "...",
       "confidence": 0.0
-    }
+    }}
   ]
-}
-7. If there are no additional attributes to infer, return {"attributes": []}.
-"""
-)
+}}
+7. If there are no additional attributes to infer, return {{"attributes": []}}.
+""".strip()
+
+
+def build_attribute_specialist_prompt(
+    entity_name: str,
+    entity_description: str,
+    existing_attributes: str,
+    requirements: str,
+) -> str:
+    return ATTRIBUTE_SPECIALIST_PROMPT_TEMPLATE.format(
+        entity_name=entity_name,
+        entity_description=entity_description,
+        existing_attributes=existing_attributes,
+        requirements=requirements,
+    )

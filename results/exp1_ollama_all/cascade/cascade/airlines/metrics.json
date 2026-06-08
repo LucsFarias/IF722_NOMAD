@@ -1,0 +1,212 @@
+{
+  "case_name": "airlines",
+  "mode": "cascade",
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "runtime_seconds": 30.338993208000005,
+  "llm_calls": 7,
+  "initial_issue_count": 1,
+  "final_issue_count": 1,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 0.5,
+      "recall": 0.6666666666666666,
+      "f1": 0.5714285714285715,
+      "true_positives": [
+        "airline",
+        "airport"
+      ],
+      "false_positives": [
+        "operation",
+        "operationdetail"
+      ],
+      "false_negatives": [
+        "detail"
+      ]
+    },
+    "attributes": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1": 0.75,
+      "true_positives": [
+        [
+          "airline",
+          "name"
+        ],
+        [
+          "airport",
+          "city"
+        ],
+        [
+          "airport",
+          "code"
+        ]
+      ],
+      "false_positives": [
+        [
+          "airline",
+          "operating_cost"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "airport",
+          "airline"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "airline",
+          "airport",
+          "--",
+          null
+        ],
+        [
+          "operationdetail",
+          "airline",
+          "o--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Airline",
+          "Airport",
+          "..",
+          "Details"
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "airline",
+          "airport"
+        ],
+        [
+          "airline",
+          "operationdetail"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Airline",
+          "Airport"
+        ]
+      ]
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 0.5,
+      "recall": 0.6666666666666666,
+      "f1": 0.5714285714285715,
+      "true_positives": [
+        "airline",
+        "airport"
+      ],
+      "false_positives": [
+        "operation",
+        "operationdetail"
+      ],
+      "false_negatives": [
+        "detail"
+      ]
+    },
+    "attributes": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1": 0.75,
+      "true_positives": [
+        [
+          "airline",
+          "name"
+        ],
+        [
+          "airport",
+          "city"
+        ],
+        [
+          "airport",
+          "code"
+        ]
+      ],
+      "false_positives": [
+        [
+          "airline",
+          "operating_cost"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "airport",
+          "airline"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "airline",
+          "airport",
+          "--",
+          null
+        ],
+        [
+          "operationdetail",
+          "airline",
+          "o--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Airline",
+          "Airport",
+          "..",
+          "Details"
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "airline",
+          "airport"
+        ],
+        [
+          "airline",
+          "operationdetail"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Airline",
+          "Airport"
+        ]
+      ]
+    }
+  },
+  "average_f1": 0.3303571428571429,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

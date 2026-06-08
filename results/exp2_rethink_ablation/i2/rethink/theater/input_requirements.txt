@@ -1,0 +1,8 @@
+This is a model about theaters.
+
+Theaters have a location, and they can play any play, which can be musicals or operas. Plays have a name and can be played either at day or night. Plays are written by one or more authors, who have a name. 
+There are many participants who act in a play, participants also have a name. A particular participant acts in a particular session of a play, where each session begins and ends at a specific time. 
+Both authors and participants are persons. Any play can have any number of participants, and any participant can act in any number of plays.
+Furthermore, each participant acts in specific sessions of a play, where the session has a begin time and an
+end time. Regarding authors, one can be the author of more than one play. Besides, plays can take place in more than one theater. Finally, participants can act in any number of
+plays.

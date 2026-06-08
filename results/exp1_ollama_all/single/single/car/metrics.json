@@ -1,0 +1,462 @@
+{
+  "case_name": "car",
+  "mode": "single",
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "runtime_seconds": 20.577392417,
+  "llm_calls": 2,
+  "initial_issue_count": 1,
+  "final_issue_count": 1,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        "car",
+        "engine",
+        "make",
+        "model",
+        "seat",
+        "wheel"
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 0.4375,
+      "recall": 0.875,
+      "f1": 0.5833333333333334,
+      "true_positives": [
+        [
+          "car",
+          "model"
+        ],
+        [
+          "car",
+          "numberplate"
+        ],
+        [
+          "engine",
+          "power"
+        ],
+        [
+          "make",
+          "name"
+        ],
+        [
+          "model",
+          "name"
+        ],
+        [
+          "seat",
+          "size"
+        ],
+        [
+          "wheel",
+          "diameter"
+        ]
+      ],
+      "false_positives": [
+        [
+          "car",
+          "engine"
+        ],
+        [
+          "car",
+          "make"
+        ],
+        [
+          "car",
+          "seat"
+        ],
+        [
+          "car",
+          "user -> car"
+        ],
+        [
+          "car",
+          "wheel"
+        ],
+        [
+          "make",
+          "model"
+        ],
+        [
+          "model",
+          "engine"
+        ],
+        [
+          "model",
+          "seat"
+        ],
+        [
+          "model",
+          "wheel"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "model",
+          "make"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "car",
+          "engine",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "make",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "model",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "seat",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "wheel",
+          "-->",
+          null
+        ],
+        [
+          "make",
+          "model",
+          "-->",
+          null
+        ],
+        [
+          "model",
+          "engine",
+          "-->",
+          null
+        ],
+        [
+          "model",
+          "seat",
+          "-->",
+          null
+        ],
+        [
+          "model",
+          "wheel",
+          "-->",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "car",
+          "engine",
+          "*--",
+          null
+        ],
+        [
+          "car",
+          "seat",
+          "*--",
+          null
+        ],
+        [
+          "car",
+          "wheel",
+          "*--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "true_positives": [
+        [
+          "car",
+          "engine"
+        ],
+        [
+          "car",
+          "seat"
+        ],
+        [
+          "car",
+          "wheel"
+        ]
+      ],
+      "false_positives": [
+        [
+          "car",
+          "make"
+        ],
+        [
+          "car",
+          "model"
+        ],
+        [
+          "engine",
+          "model"
+        ],
+        [
+          "make",
+          "model"
+        ],
+        [
+          "model",
+          "seat"
+        ],
+        [
+          "model",
+          "wheel"
+        ]
+      ],
+      "false_negatives": []
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        "car",
+        "engine",
+        "make",
+        "model",
+        "seat",
+        "wheel"
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 0.4375,
+      "recall": 0.875,
+      "f1": 0.5833333333333334,
+      "true_positives": [
+        [
+          "car",
+          "model"
+        ],
+        [
+          "car",
+          "numberplate"
+        ],
+        [
+          "engine",
+          "power"
+        ],
+        [
+          "make",
+          "name"
+        ],
+        [
+          "model",
+          "name"
+        ],
+        [
+          "seat",
+          "size"
+        ],
+        [
+          "wheel",
+          "diameter"
+        ]
+      ],
+      "false_positives": [
+        [
+          "car",
+          "engine"
+        ],
+        [
+          "car",
+          "make"
+        ],
+        [
+          "car",
+          "seat"
+        ],
+        [
+          "car",
+          "user -> car"
+        ],
+        [
+          "car",
+          "wheel"
+        ],
+        [
+          "make",
+          "model"
+        ],
+        [
+          "model",
+          "engine"
+        ],
+        [
+          "model",
+          "seat"
+        ],
+        [
+          "model",
+          "wheel"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "model",
+          "make"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "car",
+          "engine",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "make",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "model",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "seat",
+          "-->",
+          null
+        ],
+        [
+          "car",
+          "wheel",
+          "-->",
+          null
+        ],
+        [
+          "make",
+          "model",
+          "-->",
+          null
+        ],
+        [
+          "model",
+          "engine",
+          "-->",
+          null
+        ],
+        [
+          "model",
+          "seat",
+          "-->",
+          null
+        ],
+        [
+          "model",
+          "wheel",
+          "-->",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "car",
+          "engine",
+          "*--",
+          null
+        ],
+        [
+          "car",
+          "seat",
+          "*--",
+          null
+        ],
+        [
+          "car",
+          "wheel",
+          "*--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "true_positives": [
+        [
+          "car",
+          "engine"
+        ],
+        [
+          "car",
+          "seat"
+        ],
+        [
+          "car",
+          "wheel"
+        ]
+      ],
+      "false_positives": [
+        [
+          "car",
+          "make"
+        ],
+        [
+          "car",
+          "model"
+        ],
+        [
+          "engine",
+          "model"
+        ],
+        [
+          "make",
+          "model"
+        ],
+        [
+          "model",
+          "seat"
+        ],
+        [
+          "model",
+          "wheel"
+        ]
+      ],
+      "false_negatives": []
+    }
+  },
+  "average_f1": 0.5208333333333334,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}
