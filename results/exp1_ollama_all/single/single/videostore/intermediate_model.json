@@ -1,0 +1,124 @@
+{
+  "classes": [
+    {
+      "name": "VideoStore",
+      "description": null,
+      "attributes": [
+        {
+          "name": "string name",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "void addClient(Client c)",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "void removeClient(Client c)",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "void rentMovie(Movie m, Client c)",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "VideoStore hasMany Client",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Client belongsTo VideoStore",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Client hasMany VideoStore",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "VideoStore hasMany Client",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "Movie hasMany VideoStore",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        },
+        {
+          "name": "VideoStore hasMany Movie",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [],
+  "metadata": {}
+}

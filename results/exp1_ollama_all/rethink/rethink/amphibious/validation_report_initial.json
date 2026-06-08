@@ -1,0 +1,252 @@
+{
+  "requirements": "This system represents different types of vehicles. \nA Vehicle has a position, a speed and a maximum speed. Besides, it has an environment (with a value among “land”, “water” and “air”). Finally, it can move for a given time. Those are the features of a generic vehicle.\nThen, we have land vehicles and marine vehicles as specific types of vehicles, where both have all the same features as a vehicle. Finally, an amphibious vehicle can be both a land vehicle and a marine vehicle. ",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "class",
+      "message": "The PlantUML representation does not include the 'maximum speed' attribute as specified in the requirements for a generic vehicle.",
+      "responsible_agent": "concept",
+      "target": "PlantUML",
+      "evidence": "A Vehicle has a position, a speed and a maximum speed. Besides, it has an environment (with a value among “land”, “water” and “air”). Finally, it can move for a given time. Those are the features of a generic vehicle.",
+      "suggestions": [
+        "Add 'maximum speed' attribute to the Vehicle class in PlantUML representation."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "concept",
+      "description": "The PlantUML representation does not include the 'maximum speed' attribute as specified in the requirements for a generic vehicle.",
+      "evidence_from_requirements": "A Vehicle has a position, a speed and a maximum speed. Besides, it has an environment (with a value among “land”, “water” and “air”). Finally, it can move for a given time. Those are the features of a generic vehicle.",
+      "suggested_fix": "Add 'maximum speed' attribute to the Vehicle class in PlantUML representation."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "AmphibiousVehicle",
+        "description": "Represents an amphibious vehicle, which can be both a land vehicle and a marine vehicle.",
+        "attributes": [
+          {
+            "name": "position",
+            "data_type": "Point",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Point"
+          },
+          {
+            "name": "speed",
+            "data_type": "Double",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Double"
+          },
+          {
+            "name": "environment",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "LandVehicle",
+        "description": "Represents a land vehicle, which is a specific type of Vehicle.",
+        "attributes": [
+          {
+            "name": "position",
+            "data_type": "Point",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Point"
+          },
+          {
+            "name": "speed",
+            "data_type": "Double",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Double"
+          },
+          {
+            "name": "environment",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "MarineVehicle",
+        "description": "Represents a marine vehicle, which is a specific type of Vehicle.",
+        "attributes": [
+          {
+            "name": "position",
+            "data_type": "Point",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Point"
+          },
+          {
+            "name": "speed",
+            "data_type": "Double",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Double"
+          },
+          {
+            "name": "environment",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Vehicle",
+        "description": "Represents any type of vehicle with position, speed, maximum speed, environment (land, water, air), and the ability to move for a given time.",
+        "attributes": [
+          {
+            "name": "position",
+            "data_type": "Point",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Point"
+          },
+          {
+            "name": "speed",
+            "data_type": "Double",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Double"
+          },
+          {
+            "name": "environment",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Vehicle",
+        "target": "LandVehicle",
+        "relationship_type": "association",
+        "source_multiplicity": "1",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "Vehicle",
+        "target": "MarineVehicle",
+        "relationship_type": "association",
+        "source_multiplicity": "1",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "LandVehicle",
+        "target": "AmphibiousVehicle",
+        "relationship_type": "association",
+        "source_multiplicity": "1",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "MarineVehicle",
+        "target": "AmphibiousVehicle",
+        "relationship_type": "association",
+        "source_multiplicity": "1",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {
+      "source": "concept_agent",
+      "requirements": "This system represents different types of vehicles. \nA Vehicle has a position, a speed and a maximum speed. Besides, it has an environment (with a value among “land”, “water” and “air”). Finally, it can move for a given time. Those are the features of a generic vehicle.\nThen, we have land vehicles and marine vehicles as specific types of vehicles, where both have all the same features as a vehicle. Finally, an amphibious vehicle can be both a land vehicle and a marine vehicle. ",
+      "integrated": true
+    }
+  },
+  "metadata": {
+    "validator_notes": "..."
+  },
+  "summary": {
+    "issue_count": 1,
+    "critical_issue_count": 1,
+    "noncritical_issue_count": 0
+  },
+  "is_valid": false
+}

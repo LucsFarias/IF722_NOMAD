@@ -1,0 +1,5 @@
+Many different airlines can operate in different airports. 
+An airline has a name and an airport has a code and is in a city.
+Each airline has associated a cost for operating in a specific airport. 
+Besides, the operation of an airline in a specific airport can be started and stopped at any time, and its operating cost can be updated at any time.
+The relation between airport and airline contains a details class with the operating cost.

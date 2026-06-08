@@ -1,0 +1,53 @@
+@startuml
+actor User
+
+interface Car {
+    +numberPlate: String
+}
+
+class Wheel {
+    +diameter: Float
+}
+
+class Engine {
+    +power: Int
+}
+
+class Seats {
+    +size: Int
+}
+
+class Model {
+    -name: String
+    +wheels: List[Wheel]
+    +engine: Engine
+    +seats: Seats
+}
+
+class Make {
+    -name: String
+    +models: List[Model]
+}
+
+class Car {
+    -model: Model
+    +make: Make
+    +numberPlate: String
+    +wheels: List[Wheel]
+    +engine: Engine
+    +seats: Seats
+}
+
+User -> Car : create a car
+Car --> Wheel : has four wheels
+Car --> Engine : has one engine
+Car --> Seats : has seats of the same size for all cars in the model
+
+Make --> Model : contains multiple models
+Model --> Wheel : each wheel must have the same diameter for all wheels of the same car
+Model --> Engine : each engine must have a certain power
+Model --> Seats : each seat must have a certain size for all seats of the same model
+
+Car --> Make : belongs to a make
+Car --> Model : belongs to a model
+@enduml

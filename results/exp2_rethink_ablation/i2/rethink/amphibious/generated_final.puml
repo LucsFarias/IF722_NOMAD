@@ -1,0 +1,22 @@
+@startuml
+class AmphibiousVehicle {
+  + position: Point
+  + speed: Double
+  + environment: String
+}
+class LandVehicle {
+  + position: Point
+  + speed: Double
+  + environment: String
+}
+class MarineVehicle {
+  + position: Point
+  + speed: Double
+  + environment: String
+}
+class Vehicle {
+  + position: Point
+  + speed: Double
+  + environment: String
+}
+@enduml

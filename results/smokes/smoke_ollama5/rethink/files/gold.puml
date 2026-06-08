@@ -1,0 +1,18 @@
+@startuml
+
+class Folder 
+
+class File{
+extension: String
+size: int
+}
+
+class FileSystemElement{
+name: String
+}
+
+FileSystemElement "*" --o "1" Folder
+Folder --|> FileSystemElement
+File --|> FileSystemElement
+
+@enduml

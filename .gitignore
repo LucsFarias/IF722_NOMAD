@@ -1,0 +1,10 @@
+.venv/
+.env
+.pytest_cache/
+__pycache__/
+*.pyc
+.DS_Store
+
+2511.22409v2.pdf
+
+README_EQUIPE_EXPERIMENTOS.md

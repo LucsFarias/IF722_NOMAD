@@ -1,0 +1,247 @@
+{
+  "requirements": "This model describes a file system.\nIt represents oily system elements which can be a folders or files. All file system elements have a name. Every file system element must belong to a folder, and folders can aggregate any number of file system elements. Files have information about their extension and their size.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "relationship",
+      "message": "The intermediate UML model does not correctly represent the relationship between a Folder and its children. The relationship should be 'Folder has many FileSystemElement' instead of 'FileSystemElement <<aggregates>> FileSystemElement'. This is missing in the PlantUML output as well.",
+      "responsible_agent": "relationship",
+      "target": "Intermediate UML Model, PlantUML",
+      "evidence": "Requirements state that folders can aggregate any number of file system elements, but this is not correctly represented in the intermediate model and PlantUML output.",
+      "suggestions": [
+        "Update the intermediate UML model to reflect 'Folder has many FileSystemElement' and update the PlantUML accordingly. The relationship should be a 'has many' relationship from Folder to FileSystemElement."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "relationship",
+      "description": "The intermediate UML model does not correctly represent the relationship between a Folder and its children. The relationship should be 'Folder has many FileSystemElement' instead of 'FileSystemElement <<aggregates>> FileSystemElement'. This is missing in the PlantUML output as well.",
+      "evidence_from_requirements": "Requirements state that folders can aggregate any number of file system elements, but this is not correctly represented in the intermediate model and PlantUML output.",
+      "suggested_fix": "Update the intermediate UML model to reflect 'Folder has many FileSystemElement' and update the PlantUML accordingly. The relationship should be a 'has many' relationship from Folder to FileSystemElement."
+    },
+    {
+      "issue_id": "heuristic-extra-attribute-Folder-FileSystemElement[] children",
+      "severity": "major",
+      "category": "attribute",
+      "message": "Extra attribute Folder.FileSystemElement[] children is not supported by the requirements.",
+      "responsible_agent": "attribute",
+      "target": "Folder.FileSystemElement[] children",
+      "evidence": "Attribute name 'FileSystemElement[] children' is not mentioned in the requirements.",
+      "suggestions": [
+        "Remove or justify Folder.FileSystemElement[] children."
+      ],
+      "metadata": {
+        "source": "heuristic"
+      },
+      "is_critical": false,
+      "id": "heuristic-extra-attribute-Folder-FileSystemElement[] children",
+      "target_agent": "attribute",
+      "description": "Extra attribute Folder.FileSystemElement[] children is not supported by the requirements.",
+      "evidence_from_requirements": "Attribute name 'FileSystemElement[] children' is not mentioned in the requirements.",
+      "suggested_fix": "Remove or justify Folder.FileSystemElement[] children."
+    },
+    {
+      "issue_id": "heuristic-extra-attribute-File-Folder <<aggregates>> FileSystemElement",
+      "severity": "major",
+      "category": "attribute",
+      "message": "Extra attribute File.Folder <<aggregates>> FileSystemElement is not supported by the requirements.",
+      "responsible_agent": "attribute",
+      "target": "File.Folder <<aggregates>> FileSystemElement",
+      "evidence": "Attribute name 'Folder <<aggregates>> FileSystemElement' is not mentioned in the requirements.",
+      "suggestions": [
+        "Remove or justify File.Folder <<aggregates>> FileSystemElement."
+      ],
+      "metadata": {
+        "source": "heuristic"
+      },
+      "is_critical": false,
+      "id": "heuristic-extra-attribute-File-Folder <<aggregates>> FileSystemElement",
+      "target_agent": "attribute",
+      "description": "Extra attribute File.Folder <<aggregates>> FileSystemElement is not supported by the requirements.",
+      "evidence_from_requirements": "Attribute name 'Folder <<aggregates>> FileSystemElement' is not mentioned in the requirements.",
+      "suggested_fix": "Remove or justify File.Folder <<aggregates>> FileSystemElement."
+    },
+    {
+      "issue_id": "heuristic-extra-attribute-File-File <<aggregates>> FileSystemElement",
+      "severity": "major",
+      "category": "attribute",
+      "message": "Extra attribute File.File <<aggregates>> FileSystemElement is not supported by the requirements.",
+      "responsible_agent": "attribute",
+      "target": "File.File <<aggregates>> FileSystemElement",
+      "evidence": "Attribute name 'File <<aggregates>> FileSystemElement' is not mentioned in the requirements.",
+      "suggestions": [
+        "Remove or justify File.File <<aggregates>> FileSystemElement."
+      ],
+      "metadata": {
+        "source": "heuristic"
+      },
+      "is_critical": false,
+      "id": "heuristic-extra-attribute-File-File <<aggregates>> FileSystemElement",
+      "target_agent": "attribute",
+      "description": "Extra attribute File.File <<aggregates>> FileSystemElement is not supported by the requirements.",
+      "evidence_from_requirements": "Attribute name 'File <<aggregates>> FileSystemElement' is not mentioned in the requirements.",
+      "suggested_fix": "Remove or justify File.File <<aggregates>> FileSystemElement."
+    },
+    {
+      "issue_id": "heuristic-extra-attribute-File-User -> FileSystemElement",
+      "severity": "major",
+      "category": "attribute",
+      "message": "Extra attribute File.User -> FileSystemElement is not supported by the requirements.",
+      "responsible_agent": "attribute",
+      "target": "File.User -> FileSystemElement",
+      "evidence": "Attribute name 'User -> FileSystemElement' is not mentioned in the requirements.",
+      "suggestions": [
+        "Remove or justify File.User -> FileSystemElement."
+      ],
+      "metadata": {
+        "source": "heuristic"
+      },
+      "is_critical": false,
+      "id": "heuristic-extra-attribute-File-User -> FileSystemElement",
+      "target_agent": "attribute",
+      "description": "Extra attribute File.User -> FileSystemElement is not supported by the requirements.",
+      "evidence_from_requirements": "Attribute name 'User -> FileSystemElement' is not mentioned in the requirements.",
+      "suggested_fix": "Remove or justify File.User -> FileSystemElement."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "FileSystemElement",
+        "description": null,
+        "attributes": [
+          {
+            "name": "String name",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Folder",
+        "description": null,
+        "attributes": [
+          {
+            "name": "FileSystemElement[] children",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "File",
+        "description": null,
+        "attributes": [
+          {
+            "name": "int size",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "String extension",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Folder <<aggregates>> FileSystemElement",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "File <<aggregates>> FileSystemElement",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "User -> FileSystemElement",
+            "data_type": "create a file or folder",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "create a file or folder"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "filesystemelement",
+        "target": "folder",
+        "relationship_type": "-->",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "filesystemelement",
+        "target": "file",
+        "relationship_type": "-->",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "metadata": {
+    "validator_notes": "The critical issue is related to how folders aggregate their children. This needs to be corrected in both the intermediate model and the PlantUML representation."
+  },
+  "summary": {
+    "issue_count": 5,
+    "critical_issue_count": 1,
+    "noncritical_issue_count": 4
+  },
+  "is_valid": false
+}

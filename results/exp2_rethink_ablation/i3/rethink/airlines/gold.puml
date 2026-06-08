@@ -1,0 +1,20 @@
+@startuml
+
+
+class Airline {
+  name: String
+}
+
+class Airport{
+code: String
+city: String
+}
+
+Airline "*" - "*" Airport
+(Airline, Airport) .. Details
+
+class Details {
+  operatingCost: Real
+}
+
+@enduml

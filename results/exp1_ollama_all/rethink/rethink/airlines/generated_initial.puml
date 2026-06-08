@@ -1,0 +1,21 @@
+@startuml
+class Airline {
+  + name: String
+  + operating_cost: float
+}
+class Airport {
+  + code: String
+  + city: String
+}
+class Operation {
+  + airline: Airline
+  + airport: Airport
+}
+class OperationDetails {
+  + airline: Airline
+  + airport: Airport
+  + cost: Double
+}
+Airline "1" -- "*" Airport
+OperationDetails "0..1" o-- "1" Airline : cost for operating in a specific airport
+@enduml

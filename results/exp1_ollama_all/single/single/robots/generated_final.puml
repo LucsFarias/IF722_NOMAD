@@ -1,0 +1,32 @@
+@startuml
+actor Administrator
+
+interface TaskManager
+
+class Robot {
+  +id: String
+  +type: String {cleaning_robot | transport_robot}
+}
+
+class Task {
+  +id: String
+  +startTime: DateTime
+  +location: Location {corridors | rooms}
+}
+
+class TaskExecution {
+  +id: String
+  +robotId: String
+  +taskId: String
+  +startTime: DateTime
+  +endTime: DateTime?
+  +location: Location {corridors | rooms}
+}
+
+Administrator --> Robot : manages
+Robot --> TaskManager : schedules tasks
+
+Robot --> Task : performs task
+Task --> TaskExecution : records execution of
+
+@enduml

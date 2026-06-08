@@ -1,65 +1,87 @@
-import logging
-from typing import Any, Dict, List, Optional
+from __future__ import annotations
 
-from src.agents.attribute_specialist import AttributeSpecialist
+from dataclasses import dataclass
+from typing import Any, Dict, Optional
 
-logger = logging.getLogger(__name__)
-
-
-def concept_extractor_stub(requirements: str) -> List[Dict[str, Any]]:
-    """
-    Minimal stub for Concept Extractor for MVP purposes.
-    Replace this with the project's real Concept Extractor.
-    Returns a list of entities as dicts: {"name": str, "description": str, "attributes": [{...}]}
-    """
-    # Very small heuristic example: look for lines starting with 'Class: '
-    entities: List[Dict[str, Any]] = []
-    for line in requirements.splitlines():
-        line = line.strip()
-        if line.lower().startswith("class:"):
-            name = line.split("class:", 1)[1].strip()
-            entities.append({"name": name, "description": "(from stub)", "attributes": []})
-    # If none found, return an example entity for quick tests
-    if not entities:
-        entities = [{"name": "Order", "description": "An order placed by a customer.", "attributes": [{"name": "id"}]},
-                    {"name": "Customer", "description": "A buyer in the system.", "attributes": [{"name": "id"}, {"name": "email"}]}]
-    return entities
+from src.agents.attribute_specialist import AttributeSpecialistAgent
+from src.agents.concept_agent import ConceptAgent
+from src.agents.model_integrator import ModelIntegratorAgent
+from src.agents.plantuml_agent import PlantUMLAgent
+from src.agents.relationship_agent import RelationshipAgent
+from src.schemas import UMLModel
+from src.utils.llm_call import invoke_llm_with_retry
 
 
-def relationship_comprehender_stub(entities: List[Dict[str, Any]], requirements: str) -> List[Dict[str, Any]]:
-    """Placeholder for Relationship Comprehender. Returns empty list for MVP."""
-    logger.info("Relationship comprehender received %d entities", len(entities))
-    return []
+@dataclass
+class SingleAgentBaseline:
+    llm: Optional[Any] = None
+    provider: Optional[str] = None
+    model: Optional[str] = None
+    temperature: float = 0.0
+
+    def run(self, requirements: str) -> str:
+        prompt = self._build_prompt(requirements)
+        llm = self.llm or ConceptAgent(provider=self.provider, model=self.model, temperature=self.temperature).llm
+        response = self._call_llm(llm, prompt)
+        plantuml = self._strip_markdown_fences(response).strip()
+        if "@startuml" not in plantuml.lower():
+            plantuml = "@startuml\n" + plantuml.strip() + "\n@enduml"
+        return plantuml
+
+    def _build_prompt(self, requirements: str) -> str:
+        return (
+            "You are a UML class diagram generator.\n"
+            "Generate a complete PlantUML class diagram directly from the requirements.\n"
+            "Return only PlantUML, including @startuml and @enduml.\n"
+            f"Requirements:\n{requirements}"
+        )
+
+    def _call_llm(self, llm: Any, prompt: str) -> str:
+        return invoke_llm_with_retry(llm, prompt, agent_name="SingleAgentBaseline")
+
+    def _strip_markdown_fences(self, text: str) -> str:
+        lines = text.splitlines()
+        if not lines:
+            return text
+        cleaned_lines = [line for line in lines if not line.strip().startswith("```")]
+        return "\n".join(cleaned_lines)
 
 
-def run_pipeline(requirements: str, concept_entities: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
-    # Stage 1: Concept Extraction (or use provided entities)
-    entities = concept_entities if concept_entities is not None else concept_extractor_stub(requirements)
+@dataclass
+class CascadeNOMAD:
+    concept_agent: Optional[ConceptAgent] = None
+    attribute_specialist: Optional[AttributeSpecialistAgent] = None
+    relationship_agent: Optional[RelationshipAgent] = None
+    integrator: Optional[ModelIntegratorAgent] = None
+    plantuml_agent: Optional[PlantUMLAgent] = None
 
-    # Stage 1.5: Attribute Specialist
-    attr_specialist = AttributeSpecialist()
-    try:
-        enriched = attr_specialist.enrich_entities(entities, requirements)
-    except Exception as e:
-        logger.exception("AttributeSpecialist failed: %s", e)
-        enriched = entities  # fallback: proceed with original entities
+    def __post_init__(self) -> None:
+        self.concept_agent = self.concept_agent or ConceptAgent()
+        self.attribute_specialist = self.attribute_specialist or AttributeSpecialistAgent()
+        self.relationship_agent = self.relationship_agent or RelationshipAgent()
+        self.integrator = self.integrator or ModelIntegratorAgent()
+        self.plantuml_agent = self.plantuml_agent or PlantUMLAgent()
 
-    # Stage 2: Relationship Comprehender (stub)
-    relationships = relationship_comprehender_stub(enriched, requirements)
+    def run(self, requirements: str) -> Dict[str, Any]:
+        concept_model = self.concept_agent.extract_concepts(requirements)
+        attribute_model = self.attribute_specialist.enrich_model(concept_model, requirements)
+        relationship_model = self.relationship_agent.add_relationships(attribute_model, requirements)
+        integrated_model = self.integrator.normalize_model(relationship_model, requirements=requirements)
+        plantuml = self.plantuml_agent.generate(integrated_model)
+        return {
+            "concept_model": concept_model,
+            "attribute_model": attribute_model,
+            "relationship_model": relationship_model,
+            "model": integrated_model,
+            "plantuml": plantuml,
+        }
 
-    result = {
-        "entities": enriched,
-        "relationships": relationships,
+
+def run_pipeline(requirements: str, concept_entities: Optional[Any] = None) -> Dict[str, Any]:
+    cascade = CascadeNOMAD()
+    result = cascade.run(requirements)
+    return {
+        "entities": [uml_class.to_dict() for uml_class in result["model"].classes],
+        "relationships": [relationship.to_dict() for relationship in result["model"].relationships],
+        "plantuml": result["plantuml"],
     }
-    return result
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    sample_requirements = """
-    Class: Order
-    Class: Customer
-    Orders have a total price and a created_at timestamp. Customers have a shipping_address and phone.
-    """
-    output = run_pipeline(sample_requirements)
-    print(output)

@@ -1,0 +1,24 @@
+@startuml
+actor User
+
+class FileSystemElement {
+    +String name
+}
+
+class Folder extends FileSystemElement {
+    -FileSystemElement[] children
+}
+
+class File extends FileSystemElement {
+    +int size
+    +String extension
+}
+
+Folder <<aggregates>> FileSystemElement
+File <<aggregates>> FileSystemElement
+
+User -> FileSystemElement : create a file or folder
+FileSystemElement --> Folder : belongs to
+FileSystemElement --> File : has information about its extension and size
+
+@enduml

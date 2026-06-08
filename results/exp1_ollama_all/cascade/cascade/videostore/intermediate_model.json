@@ -1,0 +1,101 @@
+{
+  "classes": [
+    {
+      "name": "Client",
+      "description": "Represents a client who can be associated with multiple video stores.",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "video_stores",
+          "data_type": "set",
+          "confidence": 0.95,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "set"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Movie",
+      "description": "Represents a movie that can be rented out by any video store.",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "VideoStore",
+      "description": "Represents a video store entity that rents out movies.",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "VideoStore",
+      "target": "Client",
+      "relationship_type": "association",
+      "source_multiplicity": "1",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Movie",
+      "target": "VideoStore",
+      "relationship_type": "association",
+      "source_multiplicity": "*",
+      "target_multiplicity": "1",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "source": "concept_agent",
+    "requirements": "This is a model of Video Stores.\nThere are also clients and movies in the system, all of which (video stores, clients and movies) have a\nname. Video stores rent out movies, where the same movie can be offered in any video store. Video stores have clients. The same client can be a client of several video stores.",
+    "integrated": true
+  }
+}

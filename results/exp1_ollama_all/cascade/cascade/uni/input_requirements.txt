@@ -1,0 +1,3 @@
+This model represents some entities of a course. 
+We know that courses have a name and a specific number of credits. Each course can have one or more professors, who have a name.
+Professors could participate in any number of courses. For a course to exist, it must aggregate, at least, five students, where each student has a name. Students can be enrolled in any number of courses. Finally, students can be accommodated in dormitories, where each dormitory can have from one to four students. Besides, each dormitory has a price.

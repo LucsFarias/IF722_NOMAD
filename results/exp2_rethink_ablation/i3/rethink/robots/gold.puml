@@ -1,0 +1,32 @@
+@startuml
+
+class CleaningRobot
+class TransportRobot
+enum Location{
+Corridors
+Rooms
+}
+
+class Robot{
+id: String
+}
+
+class Task{
+id: String
+}
+
+Robot "*" -- "*" Task
+(Robot, Task) .. TaskExecution
+
+class TaskExecution{
+id: String
+startTime: int
+location: Location
+}
+
+CleaningRobot --|> Robot
+TransportRobot --|> Robot
+
+
+
+@enduml

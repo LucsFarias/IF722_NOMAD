@@ -1,0 +1,352 @@
+{
+  "case_name": "robots",
+  "mode": "single",
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "runtime_seconds": 13.675783667000005,
+  "llm_calls": 2,
+  "initial_issue_count": 1,
+  "final_issue_count": 1,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "true_positives": [
+        "robot",
+        "task",
+        "taskexecution"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "cleaningrobot",
+        "location",
+        "transportrobot"
+      ]
+    },
+    "attributes": {
+      "precision": 0.45454545454545453,
+      "recall": 1.0,
+      "f1": 0.625,
+      "true_positives": [
+        [
+          "robot",
+          "id"
+        ],
+        [
+          "task",
+          "id"
+        ],
+        [
+          "taskexecution",
+          "id"
+        ],
+        [
+          "taskexecution",
+          "location"
+        ],
+        [
+          "taskexecution",
+          "starttime"
+        ]
+      ],
+      "false_positives": [
+        [
+          "robot",
+          "type"
+        ],
+        [
+          "task",
+          "location"
+        ],
+        [
+          "task",
+          "starttime"
+        ],
+        [
+          "taskexecution",
+          "endtime"
+        ],
+        [
+          "taskexecution",
+          "robotid"
+        ],
+        [
+          "taskexecution",
+          "taskid"
+        ]
+      ],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "administrator",
+          "robot",
+          "-->",
+          null
+        ],
+        [
+          "robot",
+          "task",
+          "-->",
+          null
+        ],
+        [
+          "robot",
+          "taskmanager",
+          "-->",
+          null
+        ],
+        [
+          "task",
+          "taskexecution",
+          "-->",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Robot",
+          "Task",
+          "..",
+          "TaskExecution"
+        ],
+        [
+          "cleaningrobot",
+          "robot",
+          "--|>",
+          null
+        ],
+        [
+          "robot",
+          "task",
+          "--",
+          null
+        ],
+        [
+          "transportrobot",
+          "robot",
+          "--|>",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.25,
+      "recall": 0.25,
+      "f1": 0.25,
+      "true_positives": [
+        [
+          "robot",
+          "task"
+        ]
+      ],
+      "false_positives": [
+        [
+          "administrator",
+          "robot"
+        ],
+        [
+          "robot",
+          "taskmanager"
+        ],
+        [
+          "task",
+          "taskexecution"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Robot",
+          "Task"
+        ],
+        [
+          "cleaningrobot",
+          "robot"
+        ],
+        [
+          "robot",
+          "transportrobot"
+        ]
+      ]
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "true_positives": [
+        "robot",
+        "task",
+        "taskexecution"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "cleaningrobot",
+        "location",
+        "transportrobot"
+      ]
+    },
+    "attributes": {
+      "precision": 0.45454545454545453,
+      "recall": 1.0,
+      "f1": 0.625,
+      "true_positives": [
+        [
+          "robot",
+          "id"
+        ],
+        [
+          "task",
+          "id"
+        ],
+        [
+          "taskexecution",
+          "id"
+        ],
+        [
+          "taskexecution",
+          "location"
+        ],
+        [
+          "taskexecution",
+          "starttime"
+        ]
+      ],
+      "false_positives": [
+        [
+          "robot",
+          "type"
+        ],
+        [
+          "task",
+          "location"
+        ],
+        [
+          "task",
+          "starttime"
+        ],
+        [
+          "taskexecution",
+          "endtime"
+        ],
+        [
+          "taskexecution",
+          "robotid"
+        ],
+        [
+          "taskexecution",
+          "taskid"
+        ]
+      ],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "administrator",
+          "robot",
+          "-->",
+          null
+        ],
+        [
+          "robot",
+          "task",
+          "-->",
+          null
+        ],
+        [
+          "robot",
+          "taskmanager",
+          "-->",
+          null
+        ],
+        [
+          "task",
+          "taskexecution",
+          "-->",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Robot",
+          "Task",
+          "..",
+          "TaskExecution"
+        ],
+        [
+          "cleaningrobot",
+          "robot",
+          "--|>",
+          null
+        ],
+        [
+          "robot",
+          "task",
+          "--",
+          null
+        ],
+        [
+          "transportrobot",
+          "robot",
+          "--|>",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.25,
+      "recall": 0.25,
+      "f1": 0.25,
+      "true_positives": [
+        [
+          "robot",
+          "task"
+        ]
+      ],
+      "false_positives": [
+        [
+          "administrator",
+          "robot"
+        ],
+        [
+          "robot",
+          "taskmanager"
+        ],
+        [
+          "task",
+          "taskexecution"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Robot",
+          "Task"
+        ],
+        [
+          "cleaningrobot",
+          "robot"
+        ],
+        [
+          "robot",
+          "transportrobot"
+        ]
+      ]
+    }
+  },
+  "average_f1": 0.38541666666666663,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

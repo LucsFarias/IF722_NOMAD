@@ -1,0 +1,711 @@
+[
+  {
+    "iteration": 0,
+    "issues": [
+      {
+        "issue_id": "issue-1",
+        "severity": "critical",
+        "category": "class",
+        "message": "The PlantUML representation does not include the numberPlate attribute for Car, which is required by the requirements.",
+        "responsible_agent": "concept",
+        "target": "PlantUML",
+        "evidence": "Cars have a number plate that identifies it.",
+        "suggestions": [
+          "Add the 'numberPlate' attribute to the Car class in PlantUML"
+        ],
+        "metadata": {},
+        "is_critical": true,
+        "id": "issue-1",
+        "target_agent": "concept",
+        "description": "The PlantUML representation does not include the numberPlate attribute for Car, which is required by the requirements.",
+        "evidence_from_requirements": "Cars have a number plate that identifies it.",
+        "suggested_fix": "Add the 'numberPlate' attribute to the Car class in PlantUML"
+      }
+    ],
+    "routed_agents": {
+      "concept": [
+        "issue-1"
+      ]
+    },
+    "actions": [],
+    "validation_report": {
+      "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+      "issues": [
+        {
+          "issue_id": "issue-1",
+          "severity": "critical",
+          "category": "class",
+          "message": "The PlantUML representation does not include the numberPlate attribute for Car, which is required by the requirements.",
+          "responsible_agent": "concept",
+          "target": "PlantUML",
+          "evidence": "Cars have a number plate that identifies it.",
+          "suggestions": [
+            "Add the 'numberPlate' attribute to the Car class in PlantUML"
+          ],
+          "metadata": {},
+          "is_critical": true,
+          "id": "issue-1",
+          "target_agent": "concept",
+          "description": "The PlantUML representation does not include the numberPlate attribute for Car, which is required by the requirements.",
+          "evidence_from_requirements": "Cars have a number plate that identifies it.",
+          "suggested_fix": "Add the 'numberPlate' attribute to the Car class in PlantUML"
+        }
+      ],
+      "validated_model": {
+        "classes": [
+          {
+            "name": "Car",
+            "description": "Represents an individual vehicle with four wheels, one engine and a set of seats.",
+            "attributes": [
+              {
+                "name": "numberPlate",
+                "data_type": "String",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "String"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Engine",
+            "description": "Represents an engine in a car. All engines of the same model have the same power.",
+            "attributes": [
+              {
+                "name": "power",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              },
+              {
+                "name": "number_plate",
+                "data_type": "string",
+                "confidence": 1.0,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "string"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Make",
+            "description": "Represents a manufacturer of cars, which includes all models with the same name and engine power.",
+            "attributes": [
+              {
+                "name": "name",
+                "data_type": "String",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "String"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Model",
+            "description": "Represents a specific type of car, which includes all cars with the same make and engine power.",
+            "attributes": [
+              {
+                "name": "make",
+                "data_type": "Make",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Make"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Seat",
+            "description": "Represents a seat in a car. All seats of the same model have the same size.",
+            "attributes": [
+              {
+                "name": "size",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Wheel",
+            "description": "Represents a wheel on the car. All wheels of the same car have the same diameter.",
+            "attributes": [
+              {
+                "name": "diameter",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          }
+        ],
+        "relationships": [
+          {
+            "source": "Car",
+            "target": "Model",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          },
+          {
+            "source": "Model",
+            "target": "Make",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          },
+          {
+            "source": "Car",
+            "target": "Wheel",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": "has wheels",
+            "metadata": {}
+          },
+          {
+            "source": "Car",
+            "target": "Engine",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "1",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          },
+          {
+            "source": "Car",
+            "target": "Seat",
+            "relationship_type": "association",
+            "source_multiplicity": "*",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": "has seats",
+            "metadata": {}
+          }
+        ],
+        "metadata": {
+          "source": "concept_agent",
+          "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+          "integrated": true
+        }
+      },
+      "metadata": {
+        "validator_notes": "The provided intermediate model and requirements are consistent, but the PlantUML representation is missing a critical detail."
+      },
+      "summary": {
+        "issue_count": 1,
+        "critical_issue_count": 1,
+        "noncritical_issue_count": 0
+      },
+      "is_valid": false
+    },
+    "llm_calls": 2,
+    "runtime_seconds": 47.289962167,
+    "metadata": {}
+  },
+  {
+    "iteration": 1,
+    "issues": [
+      {
+        "issue_id": "issue-1",
+        "severity": "critical",
+        "category": "relationship",
+        "message": "The PlantUML representation does not include all the required classes and relationships as described in the requirements.",
+        "responsible_agent": "relationship",
+        "target": "PlantUML representation",
+        "evidence": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+        "suggestions": [
+          "Add missing classes and relationships to the PlantUML diagram as per the requirements."
+        ],
+        "metadata": {},
+        "is_critical": true,
+        "id": "issue-1",
+        "target_agent": "relationship",
+        "description": "The PlantUML representation does not include all the required classes and relationships as described in the requirements.",
+        "evidence_from_requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+        "suggested_fix": "Add missing classes and relationships to the PlantUML diagram as per the requirements."
+      }
+    ],
+    "routed_agents": {
+      "concept": [
+        "issue-1"
+      ]
+    },
+    "actions": [
+      {
+        "agent": "concept",
+        "issue_ids": [
+          "issue-1"
+        ],
+        "should_revise": true
+      }
+    ],
+    "validation_report": {
+      "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+      "issues": [
+        {
+          "issue_id": "issue-1",
+          "severity": "critical",
+          "category": "relationship",
+          "message": "The PlantUML representation does not include all the required classes and relationships as described in the requirements.",
+          "responsible_agent": "relationship",
+          "target": "PlantUML representation",
+          "evidence": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+          "suggestions": [
+            "Add missing classes and relationships to the PlantUML diagram as per the requirements."
+          ],
+          "metadata": {},
+          "is_critical": true,
+          "id": "issue-1",
+          "target_agent": "relationship",
+          "description": "The PlantUML representation does not include all the required classes and relationships as described in the requirements.",
+          "evidence_from_requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+          "suggested_fix": "Add missing classes and relationships to the PlantUML diagram as per the requirements."
+        }
+      ],
+      "validated_model": {
+        "classes": [
+          {
+            "name": "Car",
+            "description": "Represents an individual vehicle with four wheels, one engine and a set of seats.",
+            "attributes": [
+              {
+                "name": "numberPlate",
+                "data_type": "String",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "String"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Engine",
+            "description": "Represents an engine in a car. All engines of the same model have the same power.",
+            "attributes": [
+              {
+                "name": "power",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Make",
+            "description": "Represents a manufacturer of cars, which includes all models with the same name and engine power.",
+            "attributes": [
+              {
+                "name": "name",
+                "data_type": "String",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "String"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Model",
+            "description": "Represents a specific type of car, which includes all cars with the same make and engine power.",
+            "attributes": [
+              {
+                "name": "make",
+                "data_type": "Make",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Make"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Seat",
+            "description": "Represents a seat in a car. All seats of the same model have the same size.",
+            "attributes": [
+              {
+                "name": "size",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Wheel",
+            "description": "Represents a wheel on the car. All wheels of the same car have the same diameter.",
+            "attributes": [
+              {
+                "name": "diameter",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          }
+        ],
+        "relationships": [],
+        "metadata": {
+          "source": "concept_agent",
+          "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+          "integrated": true
+        }
+      },
+      "metadata": {
+        "validator_notes": "..."
+      },
+      "summary": {
+        "issue_count": 1,
+        "critical_issue_count": 1,
+        "noncritical_issue_count": 0
+      },
+      "is_valid": false
+    },
+    "llm_calls": 4,
+    "runtime_seconds": 69.93396624999997,
+    "metadata": {}
+  },
+  {
+    "iteration": 2,
+    "issues": [
+      {
+        "issue_id": "issue-1",
+        "severity": "critical",
+        "category": "class",
+        "message": "The PlantUML representation does not include the required attributes for a Car class, such as numberPlate and the presence of four wheels.",
+        "responsible_agent": "concept",
+        "target": "Car",
+        "evidence": "This system represents a car. Each car has four wheels, one engine and a set of seats. Each car has a number plate that identifies it.",
+        "suggestions": [
+          "Add the required attributes to the Car class in PlantUML representation."
+        ],
+        "metadata": {},
+        "is_critical": true,
+        "id": "issue-1",
+        "target_agent": "concept",
+        "description": "The PlantUML representation does not include the required attributes for a Car class, such as numberPlate and the presence of four wheels.",
+        "evidence_from_requirements": "This system represents a car. Each car has four wheels, one engine and a set of seats. Each car has a number plate that identifies it.",
+        "suggested_fix": "Add the required attributes to the Car class in PlantUML representation."
+      }
+    ],
+    "routed_agents": {
+      "relationship": [
+        "issue-1"
+      ]
+    },
+    "actions": [
+      {
+        "agent": "relationship",
+        "issue_ids": [
+          "issue-1"
+        ],
+        "should_revise": true
+      }
+    ],
+    "validation_report": {
+      "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+      "issues": [
+        {
+          "issue_id": "issue-1",
+          "severity": "critical",
+          "category": "class",
+          "message": "The PlantUML representation does not include the required attributes for a Car class, such as numberPlate and the presence of four wheels.",
+          "responsible_agent": "concept",
+          "target": "Car",
+          "evidence": "This system represents a car. Each car has four wheels, one engine and a set of seats. Each car has a number plate that identifies it.",
+          "suggestions": [
+            "Add the required attributes to the Car class in PlantUML representation."
+          ],
+          "metadata": {},
+          "is_critical": true,
+          "id": "issue-1",
+          "target_agent": "concept",
+          "description": "The PlantUML representation does not include the required attributes for a Car class, such as numberPlate and the presence of four wheels.",
+          "evidence_from_requirements": "This system represents a car. Each car has four wheels, one engine and a set of seats. Each car has a number plate that identifies it.",
+          "suggested_fix": "Add the required attributes to the Car class in PlantUML representation."
+        }
+      ],
+      "validated_model": {
+        "classes": [
+          {
+            "name": "Car",
+            "description": "Represents an individual vehicle with four wheels, one engine and a set of seats.",
+            "attributes": [
+              {
+                "name": "numberPlate",
+                "data_type": "String",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "String"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Engine",
+            "description": "Represents an engine in a car. All engines of the same model have the same power.",
+            "attributes": [
+              {
+                "name": "power",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Make",
+            "description": "Represents a manufacturer of cars, which includes all models with the same name and engine power.",
+            "attributes": [
+              {
+                "name": "name",
+                "data_type": "String",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "String"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Model",
+            "description": "Represents a specific type of car, which includes all cars with the same make and engine power.",
+            "attributes": [
+              {
+                "name": "make",
+                "data_type": "Make",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Make"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Seat",
+            "description": "Represents a seat in a car. All seats of the same model have the same size.",
+            "attributes": [
+              {
+                "name": "size",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          },
+          {
+            "name": "Wheel",
+            "description": "Represents a wheel on the car. All wheels of the same car have the same diameter.",
+            "attributes": [
+              {
+                "name": "diameter",
+                "data_type": "Double",
+                "confidence": null,
+                "visibility": null,
+                "default_value": null,
+                "multiplicity": null,
+                "stereotype": null,
+                "source": "inferred",
+                "inferred_type": "Double"
+              }
+            ],
+            "is_abstract": false,
+            "stereotype": null
+          }
+        ],
+        "relationships": [
+          {
+            "source": "Car",
+            "target": "Model",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          },
+          {
+            "source": "Model",
+            "target": "Make",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          },
+          {
+            "source": "Car",
+            "target": "Wheel",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          },
+          {
+            "source": "Car",
+            "target": "Engine",
+            "relationship_type": "association",
+            "source_multiplicity": "1",
+            "target_multiplicity": "1",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          },
+          {
+            "source": "Model",
+            "target": "Seat",
+            "relationship_type": "association",
+            "source_multiplicity": "*",
+            "target_multiplicity": "*",
+            "source_role": null,
+            "target_role": null,
+            "label": null,
+            "metadata": {}
+          }
+        ],
+        "metadata": {
+          "source": "concept_agent",
+          "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+          "integrated": true
+        }
+      },
+      "metadata": {
+        "validator_notes": "The provided intermediate model is correct, but the PlantUML output needs to include all necessary attributes for a Car."
+      },
+      "summary": {
+        "issue_count": 1,
+        "critical_issue_count": 1,
+        "noncritical_issue_count": 0
+      },
+      "is_valid": false
+    },
+    "llm_calls": 6,
+    "runtime_seconds": 87.74475916700004,
+    "metadata": {}
+  }
+]

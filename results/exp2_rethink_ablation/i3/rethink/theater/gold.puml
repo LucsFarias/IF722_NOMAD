@@ -1,0 +1,48 @@
+@startuml
+
+class Person{
+name: String
+}
+
+class Participant{
+}
+
+class Author{
+}
+
+class Theater{
+location: String
+}
+
+class Session{
+timeBegin: int
+timeEnd: int
+}
+
+class Play{
+name: String
+time: Time 
+}
+
+class Musical
+
+class Opera
+
+enum Time{
+Day
+Night
+}
+
+Person <|-- Participant
+Person <|-- Author
+
+Theater "*" -- "*" Play
+Musical --|> Play
+Opera --|> Play
+
+Author "1...*" --o "*" Play
+Participant "*" --o "*" Play
+(Participant, Play) .. Session
+
+
+@enduml
