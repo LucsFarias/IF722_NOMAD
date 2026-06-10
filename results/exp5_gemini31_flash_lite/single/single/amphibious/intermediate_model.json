@@ -1,0 +1,176 @@
+{
+  "classes": [
+    {
+      "name": "Environment",
+      "description": null,
+      "attributes": [
+        {
+          "name": "land",
+          "data_type": "EnumValue",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "EnumValue"
+        },
+        {
+          "name": "water",
+          "data_type": "EnumValue",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "EnumValue"
+        },
+        {
+          "name": "air",
+          "data_type": "EnumValue",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "EnumValue"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Vehicle",
+      "description": null,
+      "attributes": [
+        {
+          "name": "position",
+          "data_type": "float",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "float"
+        },
+        {
+          "name": "speed",
+          "data_type": "float",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "float"
+        },
+        {
+          "name": "maxSpeed",
+          "data_type": "float",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "float"
+        },
+        {
+          "name": "environment",
+          "data_type": "Environment",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Environment"
+        },
+        {
+          "name": "move(time",
+          "data_type": "float): void",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "float): void"
+        }
+      ],
+      "is_abstract": true,
+      "stereotype": null
+    },
+    {
+      "name": "LandVehicle",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "MarineVehicle",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "AmphibiousVehicle",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "landvehicle",
+      "target": "vehicle",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "marinevehicle",
+      "target": "vehicle",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "amphibiousvehicle",
+      "target": "landvehicle",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "amphibiousvehicle",
+      "target": "marinevehicle",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

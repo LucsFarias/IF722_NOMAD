@@ -1,0 +1,102 @@
+{
+  "classes": [
+    {
+      "name": "NamedEntity",
+      "description": null,
+      "attributes": [
+        {
+          "name": "String name",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "VideoStore",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Client",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Movie",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "videostore",
+      "target": "namedentity",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "client",
+      "target": "namedentity",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "movie",
+      "target": "namedentity",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "movie",
+      "target": "videostore",
+      "relationship_type": "--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "client",
+      "target": "videostore",
+      "relationship_type": "--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

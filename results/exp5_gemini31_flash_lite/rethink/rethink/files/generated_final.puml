@@ -1,0 +1,17 @@
+@startuml
+class File {
+  + extension: String
+  + size: Long
+}
+abstract class FileSystemElement {
+  + name: String
+}
+class Folder {
+}
+Folder "1" *-- "*" FileSystemElement : contains
+FileSystemElement "*" -- "1" Folder : belongs to
+Folder --|> FileSystemElement
+File --|> FileSystemElement
+FileSystemElement --|> Folder
+Folder "1" o-- "*" FileSystemElement : contains
+@enduml

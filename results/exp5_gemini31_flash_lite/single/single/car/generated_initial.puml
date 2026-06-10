@@ -1,0 +1,38 @@
+@startuml
+
+class Make {
+    -name: String
+}
+
+class Model {
+    -name: String
+    -seatSize: float
+}
+
+class Car {
+    -numberPlate: String
+    -wheelDiameter: float
+}
+
+class Wheel {
+    -diameter: float
+}
+
+class Engine {
+    -power: float
+}
+
+class Seat {
+    -size: float
+}
+
+Make "1" -- "*" Model : produces
+Model "1" -- "*" Car : defines
+Car "1" *-- "4" Wheel : has
+Car "1" *-- "1" Engine : has
+Car "1" *-- "*" Seat : has
+
+note bottom of Car : wheelDiameter must be consistent across all 4 wheels
+note bottom of Model : seatSize must be consistent across all seats of cars of this model
+
+@enduml

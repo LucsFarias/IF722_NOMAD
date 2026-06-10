@@ -1,0 +1,194 @@
+{
+  "requirements": "This model represents some entities of a course. \nWe know that courses have a name and a specific number of credits. Each course can have one or more professors, who have a name.\nProfessors could participate in any number of courses. For a course to exist, it must aggregate, at least, five students, where each student has a name. Students can be enrolled in any number of courses. Finally, students can be accommodated in dormitories, where each dormitory can have from one to four students. Besides, each dormitory has a price.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "relationship",
+      "message": "Redundant and conflicting relationships between Course and Student.",
+      "responsible_agent": "relationship",
+      "target": "Course-Student relationship",
+      "evidence": "For a course to exist, it must aggregate, at least, five students... Students can be enrolled in any number of courses.",
+      "suggestions": [
+        "Remove the separate association between Student and Course. The aggregation relationship already covers the enrollment requirement. If a separate association is needed for enrollment, the aggregation should be removed to avoid redundancy."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "relationship",
+      "description": "Redundant and conflicting relationships between Course and Student.",
+      "evidence_from_requirements": "For a course to exist, it must aggregate, at least, five students... Students can be enrolled in any number of courses.",
+      "suggested_fix": "Remove the separate association between Student and Course. The aggregation relationship already covers the enrollment requirement. If a separate association is needed for enrollment, the aggregation should be removed to avoid redundancy."
+    },
+    {
+      "issue_id": "issue-2",
+      "severity": "medium",
+      "category": "relationship",
+      "message": "Incorrect multiplicity on the Professor-Course relationship.",
+      "responsible_agent": "relationship",
+      "target": "Professor-Course relationship",
+      "evidence": "Each course can have one or more professors... Professors could participate in any number of courses.",
+      "suggestions": [
+        "Change the multiplicity on the Professor side to '*' and the Course side to '1..*'. The current model implies a professor must be associated with at least one course to exist, which is not stated."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-2",
+      "target_agent": "relationship",
+      "description": "Incorrect multiplicity on the Professor-Course relationship.",
+      "evidence_from_requirements": "Each course can have one or more professors... Professors could participate in any number of courses.",
+      "suggested_fix": "Change the multiplicity on the Professor side to '*' and the Course side to '1..*'. The current model implies a professor must be associated with at least one course to exist, which is not stated."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "Course",
+        "description": "Represents an academic course offered by the institution.",
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "credits",
+            "data_type": "Integer",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Integer"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Dormitory",
+        "description": "A housing facility that accommodates students.",
+        "attributes": [
+          {
+            "name": "price",
+            "data_type": "Decimal",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Decimal"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Professor",
+        "description": "An instructor who teaches one or more courses.",
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Student",
+        "description": "An individual enrolled in courses and potentially residing in a dormitory.",
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Professor",
+        "target": "Course",
+        "relationship_type": "association",
+        "source_multiplicity": "1..*",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "Course",
+        "target": "Student",
+        "relationship_type": "aggregation",
+        "source_multiplicity": "1",
+        "target_multiplicity": "5..*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "Student",
+        "target": "Course",
+        "relationship_type": "association",
+        "source_multiplicity": "*",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "Dormitory",
+        "target": "Student",
+        "relationship_type": "association",
+        "source_multiplicity": "1",
+        "target_multiplicity": "1..4",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {
+      "source": "concept_agent",
+      "requirements": "This model represents some entities of a course. \nWe know that courses have a name and a specific number of credits. Each course can have one or more professors, who have a name.\nProfessors could participate in any number of courses. For a course to exist, it must aggregate, at least, five students, where each student has a name. Students can be enrolled in any number of courses. Finally, students can be accommodated in dormitories, where each dormitory can have from one to four students. Besides, each dormitory has a price.",
+      "integrated": true
+    }
+  },
+  "metadata": {
+    "validator_notes": "The model contains a redundant relationship between Student and Course (both an aggregation and an association). Additionally, the Professor-Course multiplicity is inverted relative to the requirement that a course has one or more professors."
+  },
+  "summary": {
+    "issue_count": 2,
+    "critical_issue_count": 1,
+    "noncritical_issue_count": 1
+  },
+  "is_valid": false
+}

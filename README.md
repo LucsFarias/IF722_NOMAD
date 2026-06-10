@@ -87,7 +87,11 @@ Supported providers:
 Defaults:
 
 - `LLM_PROVIDER=gemini`
-- `LLM_MODEL=gemini-2.5-flash`
+- `LLM_MODEL=gemini-3.1-flash-lite`
+- `GOOGLE_API_KEY=<your key>`
+- `GOOGLE_GENAI_USE_VERTEXAI=false`
+- `GEMINI_REQUEST_DELAY_SECONDS=5`
+- `GEMINI_MAX_RETRIES=1`
 
 For local inference:
 
@@ -116,9 +120,12 @@ Copy `.env.example` to `.env` and adjust values as needed.
 
 ```env
 LLM_PROVIDER=gemini
-LLM_MODEL=gemini-2.5-flash
+LLM_MODEL=gemini-3.1-flash-lite
 LLM_TEMPERATURE=0
 GOOGLE_API_KEY=
+GOOGLE_GENAI_USE_VERTEXAI=false
+GEMINI_REQUEST_DELAY_SECONDS=5
+GEMINI_MAX_RETRIES=1
 OLLAMA_BASE_URL=http://localhost:11434
 ```
 
@@ -128,9 +135,14 @@ Set:
 
 ```bash
 export LLM_PROVIDER=gemini
-export LLM_MODEL=gemini-2.5-flash
+export LLM_MODEL=gemini-3.1-flash-lite
 export GOOGLE_API_KEY=your_api_key
+export GOOGLE_GENAI_USE_VERTEXAI=false
+export GEMINI_REQUEST_DELAY_SECONDS=5
+export GEMINI_MAX_RETRIES=1
 ```
+
+You can swap `LLM_MODEL` for another Gemini model available on your account. Use the exact model name shown in AI Studio.
 
 ### Ollama
 
@@ -213,7 +225,7 @@ python scripts/run_experiment.py \
   --dataset data/small_models/data.jsonl \
   --mode rethink \
   --provider gemini \
-  --model gemini-2.5-flash \
+  --model gemini-3.1-flash-lite \
   --limit-cases 3 \
   --output results/exp3/gemini
 
