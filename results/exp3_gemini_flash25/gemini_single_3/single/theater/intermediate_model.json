@@ -1,0 +1,221 @@
+{
+  "classes": [
+    {
+      "name": "Person",
+      "description": null,
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Author",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Participant",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Play",
+      "description": null,
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Musical",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Opera",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Theater",
+      "description": null,
+      "attributes": [
+        {
+          "name": "location",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Session",
+      "description": null,
+      "attributes": [
+        {
+          "name": "beginTime",
+          "data_type": "DateTime",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "DateTime"
+        },
+        {
+          "name": "endTime",
+          "data_type": "DateTime",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "DateTime"
+        },
+        {
+          "name": "timeOfDay",
+          "data_type": "String ' e.g., \"Day\", \"Night\"",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String ' e.g., \"Day\", \"Night\""
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "author",
+      "target": "person",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "participant",
+      "target": "person",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "musical",
+      "target": "play",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "opera",
+      "target": "play",
+      "relationship_type": "--|>",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "play",
+      "target": "theater",
+      "relationship_type": "--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "author",
+      "target": "play",
+      "relationship_type": "--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "play",
+      "target": "session",
+      "relationship_type": "--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "participant",
+      "target": "session",
+      "relationship_type": "--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

@@ -1,0 +1,197 @@
+{
+  "classes": [
+    {
+      "name": "Course",
+      "description": "Represents a course entity",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "credits",
+          "data_type": "Integer",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Integer"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Dormitory",
+      "description": "Represents a dormitory entity",
+      "attributes": [
+        {
+          "name": "price",
+          "data_type": "Float",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Float"
+        },
+        {
+          "name": "students",
+          "data_type": "Integer",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Integer"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Professor",
+      "description": "Represents a professor entity",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Student",
+      "description": "Represents a student entity",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "Course",
+      "target": "Professor",
+      "relationship_type": "association",
+      "source_multiplicity": "1..*",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Course",
+      "target": "Student",
+      "relationship_type": "aggregation",
+      "source_multiplicity": "5..*",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Professor",
+      "target": "Course",
+      "relationship_type": "association",
+      "source_multiplicity": "*",
+      "target_multiplicity": "1..*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Student",
+      "target": "Dormitory",
+      "relationship_type": "aggregation",
+      "source_multiplicity": "1..4",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Course",
+      "target": "Professor",
+      "relationship_type": "association",
+      "source_multiplicity": "*",
+      "target_multiplicity": "1..*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Course",
+      "target": "Student",
+      "relationship_type": "aggregation",
+      "source_multiplicity": "1",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Professor",
+      "target": "Course",
+      "relationship_type": "association",
+      "source_multiplicity": "1..*",
+      "target_multiplicity": "1",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Student",
+      "target": "Dormitory",
+      "relationship_type": "association",
+      "source_multiplicity": "*",
+      "target_multiplicity": "1..4",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "source": "concept_agent",
+    "requirements": "This model represents some entities of a course. \nWe know that courses have a name and a specific number of credits. Each course can have one or more professors, who have a name.\nProfessors could participate in any number of courses. For a course to exist, it must aggregate, at least, five students, where each student has a name. Students can be enrolled in any number of courses. Finally, students can be accommodated in dormitories, where each dormitory can have from one to four students. Besides, each dormitory has a price.",
+    "integrated": true
+  }
+}

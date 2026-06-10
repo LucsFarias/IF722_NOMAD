@@ -1,0 +1,153 @@
+{
+  "classes": [
+    {
+      "name": "Airline",
+      "description": "Represents an airline",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Airport",
+      "description": "Represents an airport",
+      "attributes": [
+        {
+          "name": "code",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "city",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "AirportAirlineRelation",
+      "description": "Represents the relation between an airport and an airline",
+      "attributes": [
+        {
+          "name": "airline",
+          "data_type": "Airline",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Airline"
+        },
+        {
+          "name": "airport",
+          "data_type": "Airport",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Airport"
+        },
+        {
+          "name": "operatingCost",
+          "data_type": "OperatingCost",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "OperatingCost"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "OperatingCost",
+      "description": "Represents the operating cost of an airline in a specific airport",
+      "attributes": [
+        {
+          "name": "cost",
+          "data_type": "Number",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Number"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "Airline",
+      "target": "Airport",
+      "relationship_type": "association",
+      "source_multiplicity": "*",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Airline",
+      "target": "OperatingCost",
+      "relationship_type": "composition",
+      "source_multiplicity": "1",
+      "target_multiplicity": "1",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "Airport",
+      "target": "AirportAirlineRelation",
+      "relationship_type": "association",
+      "source_multiplicity": "*",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "source": "concept_agent",
+    "requirements": "Many different airlines can operate in different airports. \nAn airline has a name and an airport has a code and is in a city.\nEach airline has associated a cost for operating in a specific airport. \nBesides, the operation of an airline in a specific airport can be started and stopped at any time, and its operating cost can be updated at any time.\nThe relation between airport and airline contains a details class with the operating cost.",
+    "integrated": true
+  }
+}

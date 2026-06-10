@@ -1,0 +1,32 @@
+Here is the PlantUML code for the class diagram based on the provided requirements:
+@startuml
+class Airline {
+  - name : String
+}
+
+class Airport {
+  - code : String
+  - city : String
+}
+
+class Details {
+  - operatingCost : Float
+}
+
+class Airline_Airport_Relation {
+  - airline : Airline
+  - airport : Airport
+  - details : Details
+}
+
+Airline --* Airline_Airport_Relation
+Airport --* Airline_Airport_Relation
+Details --* Airline_Airport_Relation
+
+@enduml
+This PlantUML code defines the classes and relationships as described in the requirements. The `--*` symbol indicates a one-to-many relationship between an airline and its airport relations, an airport and its airline relations, and a details object associated with each relation.
+
+Note that I've used the following notation:
+
+* `- name : String` means that the class has a property named "name" of type String.
+* `--*` means a one-to-many relationship between two classes.

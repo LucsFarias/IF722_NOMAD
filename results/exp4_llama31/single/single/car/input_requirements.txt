@@ -1,0 +1,2 @@
+This system represents a car. 
+Cars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.

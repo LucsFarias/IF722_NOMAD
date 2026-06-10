@@ -1,0 +1,587 @@
+{
+  "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Seat class has a 'Make ..> Model' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Seat",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Make ..> Model' attribute from the Seat class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "concept",
+      "description": "The Seat class has a 'Make ..> Model' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Make ..> Model' attribute from the Seat class."
+    },
+    {
+      "issue_id": "issue-2",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Seat class has a 'Model ..> Make' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Seat",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Model ..> Make' attribute from the Seat class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-2",
+      "target_agent": "concept",
+      "description": "The Seat class has a 'Model ..> Make' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Model ..> Make' attribute from the Seat class."
+    },
+    {
+      "issue_id": "issue-3",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Wheel class has a 'Car ..> Model' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Wheel",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Car ..> Model' attribute from the Wheel class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-3",
+      "target_agent": "concept",
+      "description": "The Wheel class has a 'Car ..> Model' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Car ..> Model' attribute from the Wheel class."
+    },
+    {
+      "issue_id": "issue-4",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Wheel class has a 'Model ..> Car' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Wheel",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Model ..> Car' attribute from the Wheel class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-4",
+      "target_agent": "concept",
+      "description": "The Wheel class has a 'Model ..> Car' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Model ..> Car' attribute from the Wheel class."
+    },
+    {
+      "issue_id": "issue-5",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Engine class has a 'Car ..> Model' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Engine",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Car ..> Model' attribute from the Engine class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-5",
+      "target_agent": "concept",
+      "description": "The Engine class has a 'Car ..> Model' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Car ..> Model' attribute from the Engine class."
+    },
+    {
+      "issue_id": "issue-6",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Engine class has a 'Model ..> Car' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Engine",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Model ..> Car' attribute from the Engine class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-6",
+      "target_agent": "concept",
+      "description": "The Engine class has a 'Model ..> Car' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Model ..> Car' attribute from the Engine class."
+    },
+    {
+      "issue_id": "issue-7",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Seat class has a 'Car ..> Model' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Seat",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Car ..> Model' attribute from the Seat class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-7",
+      "target_agent": "concept",
+      "description": "The Seat class has a 'Car ..> Model' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Car ..> Model' attribute from the Seat class."
+    },
+    {
+      "issue_id": "issue-8",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Seat class has a 'Model ..> Car' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Seat",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Model ..> Car' attribute from the Seat class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-8",
+      "target_agent": "concept",
+      "description": "The Seat class has a 'Model ..> Car' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Model ..> Car' attribute from the Seat class."
+    },
+    {
+      "issue_id": "issue-9",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Wheel class has a 'Car ..> Engine' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Wheel",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Car ..> Engine' attribute from the Wheel class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-9",
+      "target_agent": "concept",
+      "description": "The Wheel class has a 'Car ..> Engine' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Car ..> Engine' attribute from the Wheel class."
+    },
+    {
+      "issue_id": "issue-10",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Wheel class has a 'Engine ..> Car' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Wheel",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Engine ..> Car' attribute from the Wheel class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-10",
+      "target_agent": "concept",
+      "description": "The Wheel class has a 'Engine ..> Car' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Engine ..> Car' attribute from the Wheel class."
+    },
+    {
+      "issue_id": "issue-11",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Engine class has a 'Car ..> Seat' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Engine",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Car ..> Seat' attribute from the Engine class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-11",
+      "target_agent": "concept",
+      "description": "The Engine class has a 'Car ..> Seat' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Car ..> Seat' attribute from the Engine class."
+    },
+    {
+      "issue_id": "issue-12",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Engine class has a 'Seat ..> Car' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Engine",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Seat ..> Car' attribute from the Engine class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-12",
+      "target_agent": "concept",
+      "description": "The Engine class has a 'Seat ..> Car' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Seat ..> Car' attribute from the Engine class."
+    },
+    {
+      "issue_id": "issue-13",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Seat class has a 'Model ..> Engine' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Seat",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Model ..> Engine' attribute from the Seat class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-13",
+      "target_agent": "concept",
+      "description": "The Seat class has a 'Model ..> Engine' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Model ..> Engine' attribute from the Seat class."
+    },
+    {
+      "issue_id": "issue-14",
+      "severity": "critical",
+      "category": "class",
+      "message": "The Seat class has a 'Engine ..> Model' attribute, which is not mentioned in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Seat",
+      "evidence": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggestions": [
+        "Remove the 'Engine ..> Model' attribute from the Seat class."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-14",
+      "target_agent": "concept",
+      "description": "The Seat class has a 'Engine ..> Model' attribute, which is not mentioned in the requirements.",
+      "evidence_from_requirements": "Each car has four wheels, one engine and a set of seats. Every make and model have a unique name.",
+      "suggested_fix": "Remove the 'Engine ..> Model' attribute from the Seat class."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "Make",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Model",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "make",
+            "data_type": "Make",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Make"
+          },
+          {
+            "name": "seats",
+            "data_type": "Seat[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Seat[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Car",
+        "description": null,
+        "attributes": [
+          {
+            "name": "model",
+            "data_type": "Model",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Model"
+          },
+          {
+            "name": "wheels",
+            "data_type": "Wheel[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Wheel[]"
+          },
+          {
+            "name": "engine",
+            "data_type": "Engine",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Engine"
+          },
+          {
+            "name": "numberPlate",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Wheel",
+        "description": null,
+        "attributes": [
+          {
+            "name": "diameter",
+            "data_type": "Float",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Float"
+          },
+          {
+            "name": "car",
+            "data_type": "Car",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Car"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Engine",
+        "description": null,
+        "attributes": [
+          {
+            "name": "power",
+            "data_type": "Int",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Int"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Seat",
+        "description": null,
+        "attributes": [
+          {
+            "name": "size",
+            "data_type": "Float",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Float"
+          },
+          {
+            "name": "model",
+            "data_type": "Model",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Model"
+          },
+          {
+            "name": "Make ..> Model",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Model ..> Make",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Car ..> Model",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Model ..> Car",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Wheel ..> Car",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Car ..> Wheel",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Engine ..> Car",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Car ..> Engine",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Seat ..> Model",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          },
+          {
+            "name": "Model ..> Seat",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [],
+    "metadata": {}
+  },
+  "metadata": {
+    "validator_notes": "The PlantUML output has several issues related to relationships between classes that are not mentioned in the requirements."
+  },
+  "summary": {
+    "issue_count": 14,
+    "critical_issue_count": 14,
+    "noncritical_issue_count": 0
+  },
+  "is_valid": false
+}

@@ -1,0 +1,35 @@
+Here is the PlantUML class diagram:
+@startuml
+class Vehicle {
+    - position: Position
+    - speed: Speed
+    - maxSpeed: Speed
+    - environment: Environment
+}
+
+class LandVehicle extends Vehicle {
+    + moveOnLand(time)
+}
+
+class MarineVehicle extends Vehicle {
+    + moveOnWater(time)
+}
+
+class AmphibiousVehicle extends LandVehicle and MarineVehicle {
+    + moveAmphibiously(time)
+}
+
+class Position {}
+class Speed {}
+class Environment {}
+
+@enduml
+Note: The `+` symbol indicates that the method is public, and the `-` symbol indicates that the attribute is private. This is a common convention in PlantUML.
+
+This diagram represents the classes and their relationships as described in the requirements:
+
+*   `Vehicle` is the base class with attributes `position`, `speed`, `maxSpeed`, and `environment`.
+*   `LandVehicle` and `MarineVehicle` are subclasses of `Vehicle` that inherit all its attributes and add specific methods for moving on land and water, respectively.
+*   `AmphibiousVehicle` is a subclass of both `LandVehicle` and `MarineVehicle`, indicating that it can move on both land and water. It inherits the attributes and methods from both parent classes.
+
+This diagram captures the inheritance relationships between the classes and highlights the specific features of each type of vehicle.

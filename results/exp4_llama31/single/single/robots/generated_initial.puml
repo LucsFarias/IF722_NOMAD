@@ -1,0 +1,39 @@
+Here is the PlantUML class diagram:
+@startuml
+class Robot {
+  - id: String
+}
+
+class CleaningRobot extends Robot {
+}
+
+class TransportRobot extends Robot {
+}
+
+class Task {
+  - id: String
+}
+
+class TaskExecution {
+  - id: String
+  - startTime: Date
+  - location: Location
+}
+
+class Location {
+  - type: Type
+}
+
+enum Type {
+  Corridor
+  Room
+}
+
+Robot --* performs: Task
+Task --* executedBy: Robot
+TaskExecution --* task: Task
+TaskExecution --* robot: Robot
+Location --* taskExecution: TaskExecution
+
+@enduml
+This PlantUML code defines the classes and relationships as described in the requirements. The `--*` symbol indicates a one-to-many relationship, where one class can have multiple instances of another class.

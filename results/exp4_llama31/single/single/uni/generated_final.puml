@@ -1,0 +1,31 @@
+Here is the PlantUML class diagram:
+@startuml
+class Course {
+  - name : String
+  - credits : Integer
+  + professors : Professor[]
+}
+
+class Professor {
+  - name : String
+  + courses : Course[]
+}
+
+class Student {
+  - name : String
+  + courses : Course[]
+}
+
+class Dormitory {
+  - price : Float
+  + students : Student[]
+}
+
+Course o--* Professor : teaches
+Professor o--* Course : participates
+Course *--* Student : enrolls
+Student o--* Course : enrolled
+Dormitory *--* Student : accommodated
+
+@enduml
+This PlantUML code represents the entities and relationships described in the requirements. The `o--*` symbol indicates an aggregation relationship (a course aggregates professors, students, etc.), while the `*--*` symbol indicates a composition relationship (a dormitory can have from one to four students).

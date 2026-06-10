@@ -1,0 +1,390 @@
+{
+  "requirements": "This is a model about theaters.\n\nTheaters have a location, and they can play any play, which can be musicals or operas. Plays have a name and can be played either at day or night. Plays are written by one or more authors, who have a name. \nThere are many participants who act in a play, participants also have a name. A particular participant acts in a particular session of a play, where each session begins and ends at a specific time. \nBoth authors and participants are persons. Any play can have any number of participants, and any participant can act in any number of plays.\nFurthermore, each participant acts in specific sessions of a play, where the session has a begin time and an\nend time. Regarding authors, one can be the author of more than one play. Besides, plays can take place in more than one theater. Finally, participants can act in any number of\nplays.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "class",
+      "message": "The 'Person' class has a method attribute 'name', which should be a field.",
+      "responsible_agent": "concept",
+      "target": "PlantUML",
+      "evidence": "In the requirements, it is stated that authors and participants are persons. This implies that they have attributes, not methods.",
+      "suggestions": [
+        "Change the 'name' attribute of the 'Person' class to a field by removing the '+' symbol."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "concept",
+      "description": "The 'Person' class has a method attribute 'name', which should be a field.",
+      "evidence_from_requirements": "In the requirements, it is stated that authors and participants are persons. This implies that they have attributes, not methods.",
+      "suggested_fix": "Change the 'name' attribute of the 'Person' class to a field by removing the '+' symbol."
+    },
+    {
+      "issue_id": "issue-2",
+      "severity": "major",
+      "category": "relationship",
+      "message": "The relationship between 'Author' and 'Play' is not correctly represented. The 'has_written' relationship should be a composition, not an aggregation.",
+      "responsible_agent": "relationship",
+      "target": "PlantUML",
+      "evidence": "In the requirements, it is stated that one author can write more than one play. This implies a composition relationship.",
+      "suggestions": [
+        "Change the relationship between 'Author' and 'Play' to a composition by using the '..>' symbol instead of 'o--'."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-2",
+      "target_agent": "relationship",
+      "description": "The relationship between 'Author' and 'Play' is not correctly represented. The 'has_written' relationship should be a composition, not an aggregation.",
+      "evidence_from_requirements": "In the requirements, it is stated that one author can write more than one play. This implies a composition relationship.",
+      "suggested_fix": "Change the relationship between 'Author' and 'Play' to a composition by using the '..>' symbol instead of 'o--'."
+    },
+    {
+      "issue_id": "issue-3",
+      "severity": "minor",
+      "category": "relationship",
+      "message": "The 'Session' class has a field attribute 'play', which should be a relationship.",
+      "responsible_agent": "relationship",
+      "target": "PlantUML",
+      "evidence": "In the requirements, it is stated that each session begins and ends at a specific time. This implies that the session is related to a play, not an attribute of it.",
+      "suggestions": [
+        "Change the 'play' field of the 'Session' class to a relationship by using the '..>' symbol instead of '-'."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-3",
+      "target_agent": "relationship",
+      "description": "The 'Session' class has a field attribute 'play', which should be a relationship.",
+      "evidence_from_requirements": "In the requirements, it is stated that each session begins and ends at a specific time. This implies that the session is related to a play, not an attribute of it.",
+      "suggested_fix": "Change the 'play' field of the 'Session' class to a relationship by using the '..>' symbol instead of '-'."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "Theater",
+        "description": null,
+        "attributes": [
+          {
+            "name": "location",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Play",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "type",
+            "data_type": "String (musical or opera)",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String (musical or opera)"
+          },
+          {
+            "name": "authors",
+            "data_type": "Author[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Author[]"
+          },
+          {
+            "name": "participants",
+            "data_type": "Participant[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Participant[]"
+          },
+          {
+            "name": "sessions",
+            "data_type": "Session[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Session[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Author",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "plays",
+            "data_type": "Play[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Play[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Participant",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "plays",
+            "data_type": "Play[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Play[]"
+          },
+          {
+            "name": "sessions",
+            "data_type": "Session[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Session[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Person",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Session",
+        "description": null,
+        "attributes": [
+          {
+            "name": "beginTime",
+            "data_type": "Date",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Date"
+          },
+          {
+            "name": "endTime",
+            "data_type": "Date",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Date"
+          },
+          {
+            "name": "play",
+            "data_type": "Play",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Play"
+          },
+          {
+            "name": "participant",
+            "data_type": "Participant",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Participant"
+          },
+          {
+            "name": "Play ..> Author",
+            "data_type": "written_by",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "written_by"
+          },
+          {
+            "name": "Session ..> Play",
+            "data_type": "part_of",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "part_of"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "play",
+        "target": "o",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "play",
+        "target": "o",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "participant",
+        "target": "o",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "session",
+        "target": "o",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "author",
+        "target": "person",
+        "relationship_type": "--|>",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "participant",
+        "target": "person",
+        "relationship_type": "--|>",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "metadata": {
+    "validator_notes": "The validator has identified three issues in the PlantUML model. The first issue is related to the representation of methods as attributes in the 'Person' class. The second issue is related to the incorrect representation of the relationship between 'Author' and 'Play'. The third issue is related to the representation of fields as relationships in the 'Session' class."
+  },
+  "summary": {
+    "issue_count": 3,
+    "critical_issue_count": 1,
+    "noncritical_issue_count": 2
+  },
+  "is_valid": false
+}

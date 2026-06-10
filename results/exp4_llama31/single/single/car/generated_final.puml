@@ -1,0 +1,46 @@
+Here is the PlantUML class diagram:
+@startuml
+class Make {
+  - name : String
+}
+
+class Model {
+  - name : String
+  - make : Make
+  - seats : Seat[]
+}
+
+class Car {
+  - model : Model
+  - wheels : Wheel[]
+  - engine : Engine
+  - numberPlate : String
+}
+
+class Wheel {
+  - diameter : Float
+  - car : Car
+}
+
+class Engine {
+  - power : Int
+}
+
+class Seat {
+  - size : Float
+  - model : Model
+}
+
+Make ..> Model
+Model ..> Make
+Car ..> Model
+Model ..> Car
+Wheel ..> Car
+Car ..> Wheel
+Engine ..> Car
+Car ..> Engine
+Seat ..> Model
+Model ..> Seat
+
+@enduml
+This PlantUML code represents the relationships between classes as described in the requirements. Each class has its properties, and the relationships are defined using the `..>` operator to indicate a composition relationship (i.e., one class contains zero or more instances of another class).
