@@ -16,17 +16,23 @@ class FakeChatModel:
 
 def test_create_llm_provider_builds_gemini_from_environment(monkeypatch):
     monkeypatch.setenv("LLM_PROVIDER", "gemini")
-    monkeypatch.setenv("LLM_MODEL", "gemini-2.5-flash")
+    monkeypatch.setenv("LLM_MODEL", "gemini-3.1-flash-lite")
     monkeypatch.setenv("LLM_TEMPERATURE", "0")
     monkeypatch.setenv("GOOGLE_API_KEY", "test-key")
+    monkeypatch.setenv("GOOGLE_GENAI_USE_VERTEXAI", "false")
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     monkeypatch.setattr(provider_module, "ChatGoogleGenerativeAI", FakeChatModel)
 
     llm = create_llm_provider()
 
     assert isinstance(llm, FakeChatModel)
-    assert llm.kwargs["model"] == "gemini-2.5-flash"
+    assert llm.kwargs["model"] == "gemini-3.1-flash-lite"
     assert llm.kwargs["temperature"] == 0.0
     assert llm.kwargs["google_api_key"] == "test-key"
+    assert llm.kwargs["vertexai"] is False
+    assert provider_module.os.environ["GOOGLE_GENAI_USE_VERTEXAI"] == "false"
+    assert provider_module.os.environ["GOOGLE_API_KEY"] == "test-key"
+    assert provider_module.os.environ.get("GEMINI_API_KEY") is None
 
 
 def test_create_llm_provider_builds_ollama(monkeypatch):

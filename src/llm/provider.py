@@ -60,9 +60,7 @@ class LLMConfig:
                 "LLM_TEMPERATURE must be a valid float, e.g. 0 or 0.0."
             ) from exc
 
-        google_api_key = _empty_to_none(
-            os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
-        )
+        google_api_key = _empty_to_none(os.getenv("GOOGLE_API_KEY"))
 
         ollama_base_url = _empty_to_none(
             os.getenv("OLLAMA_BASE_URL", DEFAULT_OLLAMA_BASE_URL)
@@ -94,9 +92,8 @@ def _build_gemini_provider(config: LLMConfig, extra_kwargs: Dict[str, Any]) -> A
     # LangChain/google-genai checks GOOGLE_GENAI_USE_VERTEXAI when selecting backend.
     os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "false"
 
-    # Keep both names for compatibility with google-genai/langchain versions.
+    # Use only the explicit Google API key supplied by the user.
     os.environ["GOOGLE_API_KEY"] = config.google_api_key
-    os.environ.setdefault("GEMINI_API_KEY", config.google_api_key)
 
     # These parameters would force Vertex AI. Do not allow them in this project.
     forbidden_vertex_kwargs = {
@@ -162,8 +159,11 @@ def create_llm_provider(
 ) -> Any:
     config = LLMConfig.from_env()
 
+    if provider is not None:
+        provider = provider.strip().lower()
+
     config = LLMConfig(
-        provider=(provider.strip().lower() if provider is not None else config.provider),
+        provider=(provider if provider is not None else config.provider),
         model=(model if model is not None else config.model),
         temperature=(temperature if temperature is not None else config.temperature),
         google_api_key=config.google_api_key,
