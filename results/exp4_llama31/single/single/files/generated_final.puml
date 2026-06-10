@@ -1,0 +1,28 @@
+Here is the PlantUML class diagram:
+@startuml
+class FileSystemElement {
+  -name: String
+}
+
+class Folder extends FileSystemElement {
+  *-elements: FileSystemElement[]
+}
+
+class File extends FileSystemElement {
+  -extension: String
+  -size: Integer
+}
+
+Folder o--* File
+FileSystemElement --o Folder
+
+@enduml
+Let me explain what each part of the diagram represents:
+
+* `FileSystemElement` is an abstract class that represents any file system element (folder or file). It has a single attribute `name`.
+* `Folder` is a subclass of `FileSystemElement`. It has a collection of `elements`, which are other `FileSystemElement`s.
+* `File` is another subclass of `FileSystemElement`. It has two additional attributes: `extension` and `size`.
+* The `o--*` relationship between `Folder` and `File` indicates that a folder can contain any number of files. The `*` symbol means "zero or more".
+* The `--o` relationship between `FileSystemElement` and `Folder` indicates that every file system element must belong to a folder.
+
+Note: In PlantUML, the `@startuml` and `@enduml` directives are used to define the start and end of the diagram.

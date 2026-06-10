@@ -1,0 +1,310 @@
+{
+  "case_name": "uni",
+  "mode": "single",
+  "provider": "ollama",
+  "model": "llama3.1:8b",
+  "runtime_seconds": 66.901323417,
+  "llm_calls": 2,
+  "initial_issue_count": 5,
+  "final_issue_count": 5,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1": 0.75,
+      "true_positives": [
+        "course",
+        "professor",
+        "student"
+      ],
+      "false_positives": [
+        "dormitory"
+      ],
+      "false_negatives": [
+        "dormunit"
+      ]
+    },
+    "attributes": {
+      "precision": 0.42857142857142855,
+      "recall": 0.75,
+      "f1": 0.5454545454545454,
+      "true_positives": [
+        [
+          "course",
+          "name"
+        ],
+        [
+          "professor",
+          "name"
+        ],
+        [
+          "student",
+          "name"
+        ]
+      ],
+      "false_positives": [
+        [
+          "course",
+          "credit"
+        ],
+        [
+          "course",
+          "professor"
+        ],
+        [
+          "professor",
+          "cours"
+        ],
+        [
+          "student",
+          "cours"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "course",
+          "numcredit"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "course",
+          "o",
+          "*--",
+          null
+        ],
+        [
+          "course",
+          "student",
+          "*--",
+          null
+        ],
+        [
+          "dormitory",
+          "student",
+          "*--",
+          null
+        ],
+        [
+          "professor",
+          "o",
+          "*--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "course",
+          "professor",
+          "--",
+          null
+        ],
+        [
+          "course",
+          "student",
+          "o--",
+          null
+        ],
+        [
+          "dormunit",
+          "student",
+          "o--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.25,
+      "recall": 0.3333333333333333,
+      "f1": 0.28571428571428575,
+      "true_positives": [
+        [
+          "course",
+          "student"
+        ]
+      ],
+      "false_positives": [
+        [
+          "course",
+          "o"
+        ],
+        [
+          "dormitory",
+          "student"
+        ],
+        [
+          "o",
+          "professor"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "course",
+          "professor"
+        ],
+        [
+          "dormunit",
+          "student"
+        ]
+      ]
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1": 0.75,
+      "true_positives": [
+        "course",
+        "professor",
+        "student"
+      ],
+      "false_positives": [
+        "dormitory"
+      ],
+      "false_negatives": [
+        "dormunit"
+      ]
+    },
+    "attributes": {
+      "precision": 0.42857142857142855,
+      "recall": 0.75,
+      "f1": 0.5454545454545454,
+      "true_positives": [
+        [
+          "course",
+          "name"
+        ],
+        [
+          "professor",
+          "name"
+        ],
+        [
+          "student",
+          "name"
+        ]
+      ],
+      "false_positives": [
+        [
+          "course",
+          "credit"
+        ],
+        [
+          "course",
+          "professor"
+        ],
+        [
+          "professor",
+          "cours"
+        ],
+        [
+          "student",
+          "cours"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "course",
+          "numcredit"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [
+        [
+          "course",
+          "o",
+          "*--",
+          null
+        ],
+        [
+          "course",
+          "student",
+          "*--",
+          null
+        ],
+        [
+          "dormitory",
+          "student",
+          "*--",
+          null
+        ],
+        [
+          "professor",
+          "o",
+          "*--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "course",
+          "professor",
+          "--",
+          null
+        ],
+        [
+          "course",
+          "student",
+          "o--",
+          null
+        ],
+        [
+          "dormunit",
+          "student",
+          "o--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.25,
+      "recall": 0.3333333333333333,
+      "f1": 0.28571428571428575,
+      "true_positives": [
+        [
+          "course",
+          "student"
+        ]
+      ],
+      "false_positives": [
+        [
+          "course",
+          "o"
+        ],
+        [
+          "dormitory",
+          "student"
+        ],
+        [
+          "o",
+          "professor"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "course",
+          "professor"
+        ],
+        [
+          "dormunit",
+          "student"
+        ]
+      ]
+    }
+  },
+  "average_f1": 0.3952922077922078,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

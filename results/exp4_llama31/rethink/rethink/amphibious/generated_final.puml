@@ -1,0 +1,16 @@
+@startuml
+class AmphibiousVehicle {
+}
+class LandVehicle {
+}
+class MarineVehicle {
+}
+class Vehicle {
+  + position: String
+  + speed: Number
+}
+Vehicle --|> LandVehicle
+Vehicle --|> MarineVehicle
+LandVehicle --|> AmphibiousVehicle
+MarineVehicle --|> AmphibiousVehicle
+@enduml

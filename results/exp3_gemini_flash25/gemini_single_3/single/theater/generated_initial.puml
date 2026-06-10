@@ -1,0 +1,49 @@
+@startuml
+!theme plain
+
+' Define classes
+class Person {
+    name: String
+}
+
+class Author
+class Participant
+
+class Play {
+    name: String
+}
+
+class Musical
+class Opera
+
+class Theater {
+    location: String
+}
+
+class Session {
+    beginTime: DateTime
+    endTime: DateTime
+    timeOfDay: String ' e.g., "Day", "Night"
+}
+
+' Define inheritance relationships
+Person <|-- Author
+Person <|-- Participant
+
+Play <|-- Musical
+Play <|-- Opera
+
+' Define associations
+Theater "1..*" -- "1..*" Play : plays >
+' A Theater can play one or more Plays. A Play can take place in one or more Theaters.
+
+Author "1..*" -- "1..*" Play : writes >
+' An Author can write one or more Plays. A Play is written by one or more Authors.
+
+Play "1" -- "0..*" Session : has >
+' A Play can have zero or more Sessions. A Session belongs to exactly one Play.
+
+Participant "0..*" -- "1..*" Session : acts in >
+' A Participant can act in zero or more Sessions. A Session must have one or more Participants.
+
+@enduml

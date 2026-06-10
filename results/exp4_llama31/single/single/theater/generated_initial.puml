@@ -1,0 +1,47 @@
+Here is the PlantUML class diagram:
+@startuml
+class Theater {
+  - location: String
+}
+
+class Play {
+  - name: String
+  - type: String (musical or opera)
+  - authors: Author[]
+  - participants: Participant[]
+  - sessions: Session[]
+}
+
+class Author {
+  - name: String
+  - plays: Play[]
+}
+
+class Participant {
+  - name: String
+  - plays: Play[]
+  - sessions: Session[]
+}
+
+class Person {
+  +name: String
+}
+
+class Session {
+  - beginTime: Date
+  - endTime: Date
+  - play: Play
+  - participant: Participant
+}
+
+Theater o--* Play : can_play
+Play ..> Author : written_by
+Author o--* Play : has_written
+Play o--* Participant : has_participant
+Participant o--* Session : acts_in
+Session ..> Play : part_of
+Person <|-- Author
+Person <|-- Participant
+
+@enduml
+Note: The `o--` and `..>` symbols are used to represent relationships between classes. The `+` symbol is used to indicate that a class has an attribute, while the `-` symbol indicates that it's a field (i.e., not a method).

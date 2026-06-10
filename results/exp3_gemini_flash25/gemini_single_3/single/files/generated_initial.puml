@@ -1,0 +1,23 @@
+@startuml
+hide circle
+
+abstract class FileSystemElement {
+    + name: String
+}
+
+class Folder {
+}
+
+class File {
+    + extension: String
+    + size: Long
+}
+
+FileSystemElement <|-- Folder
+FileSystemElement <|-- File
+
+' A Folder aggregates (composes) any number of FileSystemElements.
+' Each FileSystemElement must belong to exactly one Folder.
+Folder "1" *-- "0..*" FileSystemElement : contains
+
+@enduml

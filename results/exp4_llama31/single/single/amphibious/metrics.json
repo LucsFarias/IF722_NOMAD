@@ -1,0 +1,244 @@
+{
+  "case_name": "amphibious",
+  "mode": "single",
+  "provider": "ollama",
+  "model": "llama3.1:8b",
+  "runtime_seconds": 54.415602541,
+  "llm_calls": 2,
+  "initial_issue_count": 3,
+  "final_issue_count": 3,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1": 0.8333333333333333,
+      "true_positives": [
+        "amphibiousvehicle",
+        "environment",
+        "landvehicle",
+        "marinevehicle",
+        "vehicle"
+      ],
+      "false_positives": [
+        "position",
+        "speed"
+      ],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 1.0,
+      "recall": 0.5714285714285714,
+      "f1": 0.7272727272727273,
+      "true_positives": [
+        [
+          "vehicle",
+          "environment"
+        ],
+        [
+          "vehicle",
+          "maxspeed"
+        ],
+        [
+          "vehicle",
+          "position"
+        ],
+        [
+          "vehicle",
+          "speed"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        [
+          "environment",
+          "air"
+        ],
+        [
+          "environment",
+          "land"
+        ],
+        [
+          "environment",
+          "water"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [],
+      "false_negatives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle",
+          "--|>",
+          null
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle",
+          "--|>",
+          null
+        ],
+        [
+          "landvehicle",
+          "vehicle",
+          "--|>",
+          null
+        ],
+        [
+          "marinevehicle",
+          "vehicle",
+          "--|>",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [],
+      "false_negatives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle"
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle"
+        ],
+        [
+          "landvehicle",
+          "vehicle"
+        ],
+        [
+          "marinevehicle",
+          "vehicle"
+        ]
+      ]
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1": 0.8333333333333333,
+      "true_positives": [
+        "amphibiousvehicle",
+        "environment",
+        "landvehicle",
+        "marinevehicle",
+        "vehicle"
+      ],
+      "false_positives": [
+        "position",
+        "speed"
+      ],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 1.0,
+      "recall": 0.5714285714285714,
+      "f1": 0.7272727272727273,
+      "true_positives": [
+        [
+          "vehicle",
+          "environment"
+        ],
+        [
+          "vehicle",
+          "maxspeed"
+        ],
+        [
+          "vehicle",
+          "position"
+        ],
+        [
+          "vehicle",
+          "speed"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        [
+          "environment",
+          "air"
+        ],
+        [
+          "environment",
+          "land"
+        ],
+        [
+          "environment",
+          "water"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [],
+      "false_negatives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle",
+          "--|>",
+          null
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle",
+          "--|>",
+          null
+        ],
+        [
+          "landvehicle",
+          "vehicle",
+          "--|>",
+          null
+        ],
+        [
+          "marinevehicle",
+          "vehicle",
+          "--|>",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positives": [],
+      "false_positives": [],
+      "false_negatives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle"
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle"
+        ],
+        [
+          "landvehicle",
+          "vehicle"
+        ],
+        [
+          "marinevehicle",
+          "vehicle"
+        ]
+      ]
+    }
+  },
+  "average_f1": 0.39015151515151514,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

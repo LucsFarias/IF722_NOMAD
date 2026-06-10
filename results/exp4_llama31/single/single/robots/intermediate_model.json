@@ -1,0 +1,204 @@
+{
+  "classes": [
+    {
+      "name": "Robot",
+      "description": null,
+      "attributes": [
+        {
+          "name": "id",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "CleaningRobot",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "TransportRobot",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Task",
+      "description": null,
+      "attributes": [
+        {
+          "name": "id",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "TaskExecution",
+      "description": null,
+      "attributes": [
+        {
+          "name": "id",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "startTime",
+          "data_type": "Date",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Date"
+        },
+        {
+          "name": "location",
+          "data_type": "Location",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Location"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Location",
+      "description": null,
+      "attributes": [
+        {
+          "name": "type",
+          "data_type": "Type",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Type"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Type",
+      "description": null,
+      "attributes": [
+        {
+          "name": "Corridor",
+          "data_type": "EnumValue",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "EnumValue"
+        },
+        {
+          "name": "Room",
+          "data_type": "EnumValue",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "EnumValue"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "perform",
+      "target": "robot",
+      "relationship_type": "*--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "executedby",
+      "target": "task",
+      "relationship_type": "*--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "task",
+      "target": "taskexecution",
+      "relationship_type": "*--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "robot",
+      "target": "taskexecution",
+      "relationship_type": "*--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "taskexecution",
+      "target": "location",
+      "relationship_type": "*--",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

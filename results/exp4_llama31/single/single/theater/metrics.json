@@ -1,0 +1,510 @@
+{
+  "case_name": "theater",
+  "mode": "single",
+  "provider": "ollama",
+  "model": "llama3.1:8b",
+  "runtime_seconds": 74.417292125,
+  "llm_calls": 2,
+  "initial_issue_count": 3,
+  "final_issue_count": 3,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "true_positives": [
+        "author",
+        "participant",
+        "person",
+        "play",
+        "session",
+        "theater"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "musical",
+        "opera",
+        "time"
+      ]
+    },
+    "attributes": {
+      "precision": 0.16666666666666666,
+      "recall": 0.5,
+      "f1": 0.25,
+      "true_positives": [
+        [
+          "person",
+          "name"
+        ],
+        [
+          "play",
+          "name"
+        ],
+        [
+          "theater",
+          "location"
+        ]
+      ],
+      "false_positives": [
+        [
+          "author",
+          "name"
+        ],
+        [
+          "author",
+          "play"
+        ],
+        [
+          "participant",
+          "name"
+        ],
+        [
+          "participant",
+          "play"
+        ],
+        [
+          "participant",
+          "session"
+        ],
+        [
+          "play",
+          "author"
+        ],
+        [
+          "play",
+          "participant"
+        ],
+        [
+          "play",
+          "session"
+        ],
+        [
+          "play",
+          "type"
+        ],
+        [
+          "session",
+          "begintime"
+        ],
+        [
+          "session",
+          "endtime"
+        ],
+        [
+          "session",
+          "participant"
+        ],
+        [
+          "session",
+          "play"
+        ],
+        [
+          "session",
+          "play ..> author"
+        ],
+        [
+          "session",
+          "session ..> play"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "play",
+          "time"
+        ],
+        [
+          "session",
+          "timebegin"
+        ],
+        [
+          "session",
+          "timeend"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.4,
+      "recall": 0.25,
+      "f1": 0.3076923076923077,
+      "true_positives": [
+        [
+          "author",
+          "person",
+          "--|>",
+          null
+        ],
+        [
+          "participant",
+          "person",
+          "--|>",
+          null
+        ]
+      ],
+      "false_positives": [
+        [
+          "participant",
+          "o",
+          "*--",
+          null
+        ],
+        [
+          "play",
+          "o",
+          "*--",
+          null
+        ],
+        [
+          "session",
+          "o",
+          "*--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Participant",
+          "Play",
+          "..",
+          "Session"
+        ],
+        [
+          "musical",
+          "play",
+          "--|>",
+          null
+        ],
+        [
+          "opera",
+          "play",
+          "--|>",
+          null
+        ],
+        [
+          "play",
+          "1...*",
+          "o--",
+          null
+        ],
+        [
+          "play",
+          "participant",
+          "o--",
+          null
+        ],
+        [
+          "play",
+          "theater",
+          "--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.4,
+      "recall": 0.25,
+      "f1": 0.3076923076923077,
+      "true_positives": [
+        [
+          "author",
+          "person"
+        ],
+        [
+          "participant",
+          "person"
+        ]
+      ],
+      "false_positives": [
+        [
+          "o",
+          "participant"
+        ],
+        [
+          "o",
+          "play"
+        ],
+        [
+          "o",
+          "session"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "1...*",
+          "play"
+        ],
+        [
+          "Participant",
+          "Play"
+        ],
+        [
+          "musical",
+          "play"
+        ],
+        [
+          "opera",
+          "play"
+        ],
+        [
+          "participant",
+          "play"
+        ],
+        [
+          "play",
+          "theater"
+        ]
+      ]
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "true_positives": [
+        "author",
+        "participant",
+        "person",
+        "play",
+        "session",
+        "theater"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "musical",
+        "opera",
+        "time"
+      ]
+    },
+    "attributes": {
+      "precision": 0.16666666666666666,
+      "recall": 0.5,
+      "f1": 0.25,
+      "true_positives": [
+        [
+          "person",
+          "name"
+        ],
+        [
+          "play",
+          "name"
+        ],
+        [
+          "theater",
+          "location"
+        ]
+      ],
+      "false_positives": [
+        [
+          "author",
+          "name"
+        ],
+        [
+          "author",
+          "play"
+        ],
+        [
+          "participant",
+          "name"
+        ],
+        [
+          "participant",
+          "play"
+        ],
+        [
+          "participant",
+          "session"
+        ],
+        [
+          "play",
+          "author"
+        ],
+        [
+          "play",
+          "participant"
+        ],
+        [
+          "play",
+          "session"
+        ],
+        [
+          "play",
+          "type"
+        ],
+        [
+          "session",
+          "begintime"
+        ],
+        [
+          "session",
+          "endtime"
+        ],
+        [
+          "session",
+          "participant"
+        ],
+        [
+          "session",
+          "play"
+        ],
+        [
+          "session",
+          "play ..> author"
+        ],
+        [
+          "session",
+          "session ..> play"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "play",
+          "time"
+        ],
+        [
+          "session",
+          "timebegin"
+        ],
+        [
+          "session",
+          "timeend"
+        ]
+      ]
+    },
+    "relationships_strict": {
+      "precision": 0.4,
+      "recall": 0.25,
+      "f1": 0.3076923076923077,
+      "true_positives": [
+        [
+          "author",
+          "person",
+          "--|>",
+          null
+        ],
+        [
+          "participant",
+          "person",
+          "--|>",
+          null
+        ]
+      ],
+      "false_positives": [
+        [
+          "participant",
+          "o",
+          "*--",
+          null
+        ],
+        [
+          "play",
+          "o",
+          "*--",
+          null
+        ],
+        [
+          "session",
+          "o",
+          "*--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "Participant",
+          "Play",
+          "..",
+          "Session"
+        ],
+        [
+          "musical",
+          "play",
+          "--|>",
+          null
+        ],
+        [
+          "opera",
+          "play",
+          "--|>",
+          null
+        ],
+        [
+          "play",
+          "1...*",
+          "o--",
+          null
+        ],
+        [
+          "play",
+          "participant",
+          "o--",
+          null
+        ],
+        [
+          "play",
+          "theater",
+          "--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.4,
+      "recall": 0.25,
+      "f1": 0.3076923076923077,
+      "true_positives": [
+        [
+          "author",
+          "person"
+        ],
+        [
+          "participant",
+          "person"
+        ]
+      ],
+      "false_positives": [
+        [
+          "o",
+          "participant"
+        ],
+        [
+          "o",
+          "play"
+        ],
+        [
+          "o",
+          "session"
+        ]
+      ],
+      "false_negatives": [
+        [
+          "1...*",
+          "play"
+        ],
+        [
+          "Participant",
+          "Play"
+        ],
+        [
+          "musical",
+          "play"
+        ],
+        [
+          "opera",
+          "play"
+        ],
+        [
+          "participant",
+          "play"
+        ],
+        [
+          "play",
+          "theater"
+        ]
+      ]
+    }
+  },
+  "average_f1": 0.41634615384615387,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

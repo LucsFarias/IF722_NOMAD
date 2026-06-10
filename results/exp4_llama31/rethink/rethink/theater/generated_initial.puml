@@ -1,0 +1,32 @@
+@startuml
+class Author {
+  + name: String
+}
+class Location {
+}
+class Participant {
+  + name: String
+}
+class Person {
+}
+class Play {
+  + name: String
+  + location: string
+  + begin_time: datetime
+  + end_time: datetime
+}
+class Session {
+  + beginTime: DateTime
+  + endTime: DateTime
+}
+class Theater {
+}
+Theater "*" -- "*" Play
+Theater "1" *-- "1" Location
+Play "*" -- "*" Author
+Play "*" -- "*" Participant
+Author --|> Person
+Participant --|> Person
+Play "*" -- "*" Session
+Participant "1" *-- "1" Session
+@enduml

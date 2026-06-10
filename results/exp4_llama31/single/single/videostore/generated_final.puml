@@ -1,0 +1,32 @@
+Here is the PlantUML class diagram:
+@startuml
+class Client {
+  - name: String
+}
+
+class Movie {
+  - name: String
+}
+
+class VideoStore {
+  - name: String
+  --* offer: Movie
+  *-- rent: Movie
+  --* client: Client
+}
+
+VideoStore ..> Client : has_client
+Movie ..> VideoStore : is_offered_in
+
+@enduml
+Let me explain what each part of the diagram represents:
+
+* `Client`, `Movie`, and `VideoStore` are classes, represented by rectangles.
+* The `- name: String` lines indicate that each class has a `name` attribute of type `String`.
+* The `--* offer: Movie` line indicates that a `VideoStore` can offer many `Movie`s. The `*` symbol is used to represent a multiplicity (in this case, zero or more).
+* The `*-- rent: Movie` line indicates that a `VideoStore` can rent out one `Movie`. The `*` symbol again represents a multiplicity.
+* The `--* client: Client` line indicates that a `VideoStore` has many `Client`s. Again, the `*` symbol represents a multiplicity.
+* The `VideoStore ..> Client : has_client` line is an association between `VideoStore` and `Client`, indicating that a video store "has" clients.
+* The `Movie ..> VideoStore : is_offered_in` line is another association, indicating that a movie is offered in one or more video stores.
+
+This diagram represents the relationships between the classes as described in the requirements.

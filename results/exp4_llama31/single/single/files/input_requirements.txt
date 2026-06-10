@@ -1,0 +1,2 @@
+This model describes a file system.
+It represents oily system elements which can be a folders or files. All file system elements have a name. Every file system element must belong to a folder, and folders can aggregate any number of file system elements. Files have information about their extension and their size.
