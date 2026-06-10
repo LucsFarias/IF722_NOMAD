@@ -1,0 +1,210 @@
+{
+  "case_name": "files",
+  "mode": "cascade",
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "runtime_seconds": 14.223254666999999,
+  "llm_calls": 6,
+  "initial_issue_count": 2,
+  "final_issue_count": 2,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        "file",
+        "filesystemelement",
+        "folder"
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "file",
+          "extension"
+        ],
+        [
+          "file",
+          "size"
+        ],
+        [
+          "filesystemelement",
+          "name"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 0.5,
+      "recall": 0.6666666666666666,
+      "f1": 0.5714285714285715,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement",
+          "--|>",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "--|>",
+          null
+        ]
+      ],
+      "false_positives": [
+        [
+          "filesystemelement",
+          "folder",
+          "--",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "*--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "folder",
+          "filesystemelement",
+          "o--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement"
+        ],
+        [
+          "filesystemelement",
+          "folder"
+        ]
+      ],
+      "false_positives": [
+        [
+          "filesystemelement",
+          "folder"
+        ]
+      ],
+      "false_negatives": []
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        "file",
+        "filesystemelement",
+        "folder"
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "attributes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "file",
+          "extension"
+        ],
+        [
+          "file",
+          "size"
+        ],
+        [
+          "filesystemelement",
+          "name"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 0.5,
+      "recall": 0.6666666666666666,
+      "f1": 0.5714285714285715,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement",
+          "--|>",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "--|>",
+          null
+        ]
+      ],
+      "false_positives": [
+        [
+          "filesystemelement",
+          "folder",
+          "--",
+          null
+        ],
+        [
+          "folder",
+          "filesystemelement",
+          "*--",
+          null
+        ]
+      ],
+      "false_negatives": [
+        [
+          "folder",
+          "filesystemelement",
+          "o--",
+          null
+        ]
+      ]
+    },
+    "relationships_relaxed": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8,
+      "true_positives": [
+        [
+          "file",
+          "filesystemelement"
+        ],
+        [
+          "filesystemelement",
+          "folder"
+        ]
+      ],
+      "false_positives": [
+        [
+          "filesystemelement",
+          "folder"
+        ]
+      ],
+      "false_negatives": []
+    }
+  },
+  "average_f1": 0.842857142857143,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

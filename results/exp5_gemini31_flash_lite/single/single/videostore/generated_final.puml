@@ -1,0 +1,23 @@
+@startuml
+
+class NamedEntity {
+    +String name
+}
+
+class VideoStore {
+}
+
+class Client {
+}
+
+class Movie {
+}
+
+NamedEntity <|-- VideoStore
+NamedEntity <|-- Client
+NamedEntity <|-- Movie
+
+VideoStore "0..*" -- "0..*" Movie : rents out >
+VideoStore "0..*" -- "0..*" Client : has >
+
+@enduml

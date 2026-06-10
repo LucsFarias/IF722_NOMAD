@@ -1,0 +1,119 @@
+{
+  "classes": [
+    {
+      "name": "File",
+      "description": "A leaf element in the file system containing specific data properties.",
+      "attributes": [
+        {
+          "name": "extension",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        },
+        {
+          "name": "size",
+          "data_type": "Long",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Long"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "FileSystemElement",
+      "description": "An abstract base class representing any element within the file system.",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Folder",
+      "description": "A container that can aggregate multiple file system elements.",
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "Folder",
+      "target": "FileSystemElement",
+      "relationship_type": "composition",
+      "source_multiplicity": "1",
+      "target_multiplicity": "*",
+      "source_role": null,
+      "target_role": null,
+      "label": "contains",
+      "metadata": {
+        "description": "Folders aggregate any number of file system elements."
+      }
+    },
+    {
+      "source": "FileSystemElement",
+      "target": "Folder",
+      "relationship_type": "association",
+      "source_multiplicity": "*",
+      "target_multiplicity": "1",
+      "source_role": null,
+      "target_role": null,
+      "label": "belongs to",
+      "metadata": {
+        "description": "Every file system element must belong to a folder."
+      }
+    },
+    {
+      "source": "Folder",
+      "target": "FileSystemElement",
+      "relationship_type": "generalization",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {
+        "description": "Folder is a type of FileSystemElement."
+      }
+    },
+    {
+      "source": "File",
+      "target": "FileSystemElement",
+      "relationship_type": "generalization",
+      "source_multiplicity": null,
+      "target_multiplicity": null,
+      "source_role": null,
+      "target_role": null,
+      "label": null,
+      "metadata": {
+        "description": "File is a type of FileSystemElement."
+      }
+    }
+  ],
+  "metadata": {
+    "source": "concept_agent",
+    "requirements": "This model describes a file system.\nIt represents oily system elements which can be a folders or files. All file system elements have a name. Every file system element must belong to a folder, and folders can aggregate any number of file system elements. Files have information about their extension and their size.",
+    "integrated": true
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "case_name": "amphibious",
+  "mode": "single",
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "runtime_seconds": 3.664004417000001,
+  "llm_calls": 2,
+  "initial_issue_count": 2,
+  "final_issue_count": 2,
+  "resolved_issue_count": 0,
+  "initial_evaluation": {
+    "classes": {
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8000000000000002,
+      "true_positives": [
+        "amphibiousvehicle",
+        "environment",
+        "landvehicle",
+        "marinevehicle"
+      ],
+      "false_positives": [
+        "class"
+      ],
+      "false_negatives": [
+        "vehicle"
+      ]
+    },
+    "attributes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "environment",
+          "air"
+        ],
+        [
+          "environment",
+          "land"
+        ],
+        [
+          "environment",
+          "water"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle",
+          "--|>",
+          null
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle",
+          "--|>",
+          null
+        ],
+        [
+          "landvehicle",
+          "vehicle",
+          "--|>",
+          null
+        ],
+        [
+          "marinevehicle",
+          "vehicle",
+          "--|>",
+          null
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_relaxed": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle"
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle"
+        ],
+        [
+          "landvehicle",
+          "vehicle"
+        ],
+        [
+          "marinevehicle",
+          "vehicle"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    }
+  },
+  "final_evaluation": {
+    "classes": {
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8000000000000002,
+      "true_positives": [
+        "amphibiousvehicle",
+        "environment",
+        "landvehicle",
+        "marinevehicle"
+      ],
+      "false_positives": [
+        "class"
+      ],
+      "false_negatives": [
+        "vehicle"
+      ]
+    },
+    "attributes": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "environment",
+          "air"
+        ],
+        [
+          "environment",
+          "land"
+        ],
+        [
+          "environment",
+          "water"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_strict": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle",
+          "--|>",
+          null
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle",
+          "--|>",
+          null
+        ],
+        [
+          "landvehicle",
+          "vehicle",
+          "--|>",
+          null
+        ],
+        [
+          "marinevehicle",
+          "vehicle",
+          "--|>",
+          null
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    },
+    "relationships_relaxed": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positives": [
+        [
+          "amphibiousvehicle",
+          "landvehicle"
+        ],
+        [
+          "amphibiousvehicle",
+          "marinevehicle"
+        ],
+        [
+          "landvehicle",
+          "vehicle"
+        ],
+        [
+          "marinevehicle",
+          "vehicle"
+        ]
+      ],
+      "false_positives": [],
+      "false_negatives": []
+    }
+  },
+  "average_f1": 0.9500000000000001,
+  "rethink_iterations": 0,
+  "rethink_history": []
+}

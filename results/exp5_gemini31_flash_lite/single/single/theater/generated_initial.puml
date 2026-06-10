@@ -1,0 +1,43 @@
+@startuml
+
+abstract class Person {
+    +name: String
+}
+
+class Author {
+}
+
+class Participant {
+}
+
+class Theater {
+    +location: String
+}
+
+class Play {
+    +name: String
+}
+
+class Musical {
+}
+
+class Opera {
+}
+
+class Session {
+    +beginTime: DateTime
+    +endTime: DateTime
+}
+
+Person <|-- Author
+Person <|-- Participant
+
+Play <|-- Musical
+Play <|-- Opera
+
+Theater "0..*" -- "0..*" Play : plays
+Author "1..*" -- "0..*" Play : writes
+Play "1" *-- "0..*" Session : has
+Participant "0..*" -- "0..*" Session : acts in
+
+@enduml
