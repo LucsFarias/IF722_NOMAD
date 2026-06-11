@@ -1,0 +1,302 @@
+{
+  "requirements": "This model represents some entities of a course. \nWe know that courses have a name and a specific number of credits. Each course can have one or more professors, who have a name.\nProfessors could participate in any number of courses. For a course to exist, it must aggregate, at least, five students, where each student has a name. Students can be enrolled in any number of courses. Finally, students can be accommodated in dormitories, where each dormitory can have from one to four students. Besides, each dormitory has a price.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "relationship",
+      "message": "The 'professors' attribute in the Course class has a multiplicity of [], which is incorrect. According to the requirements, each course can have one or more professors.",
+      "responsible_agent": "relationship",
+      "target": "Course",
+      "evidence": "Each course can have one or more professors.",
+      "suggestions": [
+        "Change the multiplicity of the 'professors' attribute to 1..*"
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "relationship",
+      "description": "The 'professors' attribute in the Course class has a multiplicity of [], which is incorrect. According to the requirements, each course can have one or more professors.",
+      "evidence_from_requirements": "Each course can have one or more professors.",
+      "suggested_fix": "Change the multiplicity of the 'professors' attribute to 1..*"
+    },
+    {
+      "issue_id": "issue-2",
+      "severity": "critical",
+      "category": "relationship",
+      "message": "The 'courses' attribute in the Professor class has a multiplicity of [], which is incorrect. According to the requirements, professors can participate in any number of courses.",
+      "responsible_agent": "relationship",
+      "target": "Professor",
+      "evidence": "Professors could participate in any number of courses.",
+      "suggestions": [
+        "Change the multiplicity of the 'courses' attribute to 0..*"
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-2",
+      "target_agent": "relationship",
+      "description": "The 'courses' attribute in the Professor class has a multiplicity of [], which is incorrect. According to the requirements, professors can participate in any number of courses.",
+      "evidence_from_requirements": "Professors could participate in any number of courses.",
+      "suggested_fix": "Change the multiplicity of the 'courses' attribute to 0..*"
+    },
+    {
+      "issue_id": "issue-3",
+      "severity": "critical",
+      "category": "relationship",
+      "message": "The 'students' attribute in the Dormitory class has a multiplicity of [], which is incorrect. According to the requirements, each dormitory can have from one to four students.",
+      "responsible_agent": "relationship",
+      "target": "Dormitory",
+      "evidence": "Each dormitory can have from one to four students.",
+      "suggestions": [
+        "Change the multiplicity of the 'students' attribute to 1..4"
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-3",
+      "target_agent": "relationship",
+      "description": "The 'students' attribute in the Dormitory class has a multiplicity of [], which is incorrect. According to the requirements, each dormitory can have from one to four students.",
+      "evidence_from_requirements": "Each dormitory can have from one to four students.",
+      "suggested_fix": "Change the multiplicity of the 'students' attribute to 1..4"
+    },
+    {
+      "issue_id": "issue-4",
+      "severity": "critical",
+      "category": "relationship",
+      "message": "The relationship between Course and Professor is an aggregation, but it should be a composition. According to the requirements, each course must aggregate at least five students.",
+      "responsible_agent": "relationship",
+      "target": "Course",
+      "evidence": "For a course to exist, it must aggregate, at least, five students.",
+      "suggestions": [
+        "Change the relationship type from *-- to *1..5"
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-4",
+      "target_agent": "relationship",
+      "description": "The relationship between Course and Professor is an aggregation, but it should be a composition. According to the requirements, each course must aggregate at least five students.",
+      "evidence_from_requirements": "For a course to exist, it must aggregate, at least, five students.",
+      "suggested_fix": "Change the relationship type from *-- to *1..5"
+    },
+    {
+      "issue_id": "issue-5",
+      "severity": "critical",
+      "category": "relationship",
+      "message": "The relationship between Course and Student is a composition, but it should be an aggregation. According to the requirements, students can be enrolled in any number of courses.",
+      "responsible_agent": "relationship",
+      "target": "Course",
+      "evidence": "Students can be enrolled in any number of courses.",
+      "suggestions": [
+        "Change the relationship type from *--* to *--"
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-5",
+      "target_agent": "relationship",
+      "description": "The relationship between Course and Student is a composition, but it should be an aggregation. According to the requirements, students can be enrolled in any number of courses.",
+      "evidence_from_requirements": "Students can be enrolled in any number of courses.",
+      "suggested_fix": "Change the relationship type from *--* to *--"
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "Course",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "credits",
+            "data_type": "Integer",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Integer"
+          },
+          {
+            "name": "professors",
+            "data_type": "Professor[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Professor[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Professor",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "courses",
+            "data_type": "Course[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Course[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Student",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "courses",
+            "data_type": "Course[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Course[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Dormitory",
+        "description": null,
+        "attributes": [
+          {
+            "name": "price",
+            "data_type": "Float",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Float"
+          },
+          {
+            "name": "students",
+            "data_type": "Student[]",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Student[]"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "professor",
+        "target": "o",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "course",
+        "target": "o",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "course",
+        "target": "student",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "course",
+        "target": "o",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "dormitory",
+        "target": "student",
+        "relationship_type": "*--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "metadata": {
+    "validator_notes": "The intermediate model and PlantUML output do not match the requirements. The relationships between classes are incorrect, and some attributes have incorrect multiplicities."
+  },
+  "summary": {
+    "issue_count": 5,
+    "critical_issue_count": 5,
+    "noncritical_issue_count": 0
+  },
+  "is_valid": false
+}

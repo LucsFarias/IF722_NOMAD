@@ -1,0 +1,25 @@
+@startuml
+class Car {
+  + numberPlate: String
+}
+class Engine {
+  + power: Double
+}
+class Make {
+  + name: String
+}
+class Model {
+  + make: Make
+}
+class Seat {
+  + size: Double
+}
+class Wheel {
+  + diameter: Double
+}
+Car "1" -- "*" Model
+Model "1" -- "*" Make
+Car "1" -- "*" Wheel
+Car "1" -- "1" Engine
+Model "*" -- "*" Seat
+@enduml

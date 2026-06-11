@@ -1,0 +1,17 @@
+@startuml
+class File {
+  + extension: String
+  + size: Integer
+  + parent_folder: string
+  + file_system_path: string
+}
+class FileSystemElement {
+  + name: String
+  + parent_folder_name: string
+  + extension: string
+  + size_in_bytes: integer
+}
+class Folder {
+}
+Folder "1" o-- "*" FileSystemElement
+@enduml

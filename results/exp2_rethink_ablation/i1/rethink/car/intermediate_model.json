@@ -1,0 +1,124 @@
+{
+  "classes": [
+    {
+      "name": "Car",
+      "description": "Represents an individual vehicle with four wheels, one engine and a set of seats.",
+      "attributes": [
+        {
+          "name": "numberPlate",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Engine",
+      "description": "Represents an engine in a car. All engines of the same model have the same power.",
+      "attributes": [
+        {
+          "name": "power",
+          "data_type": "Double",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Double"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Make",
+      "description": "Represents a manufacturer of cars, which includes all models with the same name and engine power.",
+      "attributes": [
+        {
+          "name": "name",
+          "data_type": "String",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "String"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Model",
+      "description": "Represents a specific type of car, which includes all cars with the same make and engine power.",
+      "attributes": [
+        {
+          "name": "make",
+          "data_type": "Make",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Make"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Seat",
+      "description": "Represents a seat in a car. All seats of the same model have the same size.",
+      "attributes": [
+        {
+          "name": "size",
+          "data_type": "Double",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Double"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Wheel",
+      "description": "Represents a wheel on the car. All wheels of the same car have the same diameter.",
+      "attributes": [
+        {
+          "name": "diameter",
+          "data_type": "Double",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Double"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [],
+  "metadata": {
+    "source": "concept_agent",
+    "requirements": "This system represents a car. \nCars belong to models, which in turn belong to makes. Each car has four wheels, one engine and a set of seats. Every make and model have a unique name. Each wheel has a diameter, which must be the same for all wheels of the same car. Each engine has a certain power. Likewise, the seats have a size, which must be the same for all the seats of the cars of the same model.Each car has a number plate that identifies it.",
+    "integrated": true
+  }
+}

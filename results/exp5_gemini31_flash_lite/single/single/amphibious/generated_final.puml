@@ -1,0 +1,32 @@
+@startuml
+
+enum Environment {
+    land
+    water
+    air
+}
+
+abstract class Vehicle {
+    -position: float
+    -speed: float
+    -maxSpeed: float
+    -environment: Environment
+    +move(time: float): void
+}
+
+class LandVehicle {
+}
+
+class MarineVehicle {
+}
+
+class AmphibiousVehicle {
+}
+
+Vehicle <|-- LandVehicle
+Vehicle <|-- MarineVehicle
+
+LandVehicle <|-- AmphibiousVehicle
+MarineVehicle <|-- AmphibiousVehicle
+
+@enduml

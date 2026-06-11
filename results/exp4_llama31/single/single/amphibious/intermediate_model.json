@@ -1,0 +1,136 @@
+{
+  "classes": [
+    {
+      "name": "Vehicle",
+      "description": null,
+      "attributes": [
+        {
+          "name": "position",
+          "data_type": "Position",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Position"
+        },
+        {
+          "name": "speed",
+          "data_type": "Speed",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Speed"
+        },
+        {
+          "name": "maxSpeed",
+          "data_type": "Speed",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Speed"
+        },
+        {
+          "name": "environment",
+          "data_type": "Environment",
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": "Environment"
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "LandVehicle",
+      "description": null,
+      "attributes": [
+        {
+          "name": "moveOnLand(time)",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "MarineVehicle",
+      "description": null,
+      "attributes": [
+        {
+          "name": "moveOnWater(time)",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "AmphibiousVehicle",
+      "description": null,
+      "attributes": [
+        {
+          "name": "moveAmphibiously(time)",
+          "data_type": null,
+          "confidence": null,
+          "visibility": null,
+          "default_value": null,
+          "multiplicity": null,
+          "stereotype": null,
+          "source": "inferred",
+          "inferred_type": null
+        }
+      ],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Position",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Speed",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    },
+    {
+      "name": "Environment",
+      "description": null,
+      "attributes": [],
+      "is_abstract": false,
+      "stereotype": null
+    }
+  ],
+  "relationships": [],
+  "metadata": {}
+}

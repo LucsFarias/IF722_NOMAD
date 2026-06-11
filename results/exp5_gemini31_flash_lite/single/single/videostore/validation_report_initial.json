@@ -1,0 +1,154 @@
+{
+  "requirements": "This is a model of Video Stores.\nThere are also clients and movies in the system, all of which (video stores, clients and movies) have a\nname. Video stores rent out movies, where the same movie can be offered in any video store. Video stores have clients. The same client can be a client of several video stores.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "medium",
+      "category": "attribute",
+      "message": "The attribute 'name' is defined as 'String name' in the intermediate model, which is syntactically incorrect for a class attribute definition.",
+      "responsible_agent": "concept",
+      "target": "NamedEntity",
+      "evidence": "all of which (video stores, clients and movies) have a name.",
+      "suggestions": [
+        "Change the attribute definition to 'name: String'."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-1",
+      "target_agent": "concept",
+      "description": "The attribute 'name' is defined as 'String name' in the intermediate model, which is syntactically incorrect for a class attribute definition.",
+      "evidence_from_requirements": "all of which (video stores, clients and movies) have a name.",
+      "suggested_fix": "Change the attribute definition to 'name: String'."
+    },
+    {
+      "issue_id": "issue-2",
+      "severity": "low",
+      "category": "class",
+      "message": "The NamedEntity class should be marked as abstract since it is a base class for entities that exist independently.",
+      "responsible_agent": "concept",
+      "target": "NamedEntity",
+      "evidence": "There are also clients and movies in the system, all of which (video stores, clients and movies) have a name.",
+      "suggestions": [
+        "Set 'is_abstract' to true for NamedEntity."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-2",
+      "target_agent": "concept",
+      "description": "The NamedEntity class should be marked as abstract since it is a base class for entities that exist independently.",
+      "evidence_from_requirements": "There are also clients and movies in the system, all of which (video stores, clients and movies) have a name.",
+      "suggested_fix": "Set 'is_abstract' to true for NamedEntity."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "NamedEntity",
+        "description": null,
+        "attributes": [
+          {
+            "name": "String name",
+            "data_type": null,
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": null
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "VideoStore",
+        "description": null,
+        "attributes": [],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Client",
+        "description": null,
+        "attributes": [],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Movie",
+        "description": null,
+        "attributes": [],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "videostore",
+        "target": "namedentity",
+        "relationship_type": "--|>",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "client",
+        "target": "namedentity",
+        "relationship_type": "--|>",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "movie",
+        "target": "namedentity",
+        "relationship_type": "--|>",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "movie",
+        "target": "videostore",
+        "relationship_type": "--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "client",
+        "target": "videostore",
+        "relationship_type": "--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "metadata": {
+    "validator_notes": "The structural relationships (many-to-many) correctly reflect the requirements that movies can be in multiple stores and clients can be registered at multiple stores. The attribute syntax in the intermediate model needs normalization."
+  },
+  "summary": {
+    "issue_count": 2,
+    "critical_issue_count": 0,
+    "noncritical_issue_count": 2
+  },
+  "is_valid": true
+}

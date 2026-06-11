@@ -1,0 +1,25 @@
+@startuml
+class Author {
+  + name: String
+}
+class Musical {
+}
+class Opera {
+}
+class Participant {
+  + name: String
+}
+class Play {
+  + name: String
+  + location: string
+  + day_or_night: string
+}
+class Theater {
+  + location: string
+}
+Theater "1" -- "*" Play
+Play "*" -- "1" Musical
+Play "*" -- "1" Opera
+Author "1" -- "*" Play
+Participant "*" -- "*" Play
+@enduml

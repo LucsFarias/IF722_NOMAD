@@ -1,0 +1,24 @@
+@startuml
+class Course {
+  + name: String
+  + credits: Integer
+}
+class Dormitory {
+  + price: Float
+  + students: Integer
+}
+class Professor {
+  + name: String
+}
+class Student {
+  + name: String
+}
+Course "1..*" -- "*" Professor
+Course "5..*" o-- "*" Student
+Professor "*" -- "1..*" Course
+Student "1..4" o-- "*" Dormitory
+Course "*" -- "1..*" Professor
+Course "1" o-- "*" Student
+Professor "1..*" -- "1" Course
+Student "*" -- "1..4" Dormitory
+@enduml

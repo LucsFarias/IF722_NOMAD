@@ -1,0 +1,51 @@
+@startuml
+actor User
+
+Vehicle {
+    position: Position
+    speed: Speed
+    maxSpeed: MaxSpeed
+    environment: Environment
+}
+
+Environment {
+    value: String
+}
+
+Position {
+    x: Integer
+    y: Integer
+}
+
+Speed {
+    current: Integer
+    maximum: Integer
+}
+
+Vehicle {
+    moveForTime: MoveForTime
+}
+
+Vehicle..> Position : position
+Vehicle..> Speed : speed
+Vehicle..> Environment : environment
+
+Vehicle..> Vehicle : canMoveForTime
+
+LandVehicle {
+    // Land vehicles inherit all features of a vehicle and add some specific ones.
+}
+
+MarineVehicle {
+    // Marine vehicles inherit all features of a vehicle and add some specific ones.
+}
+
+AmphibiousVehicle {
+    // Amphibious vehicles inherit all features of a Vehicle, as well as those of land and marine vehicles.
+}
+
+User ..> LandVehicle : drive
+User ..> MarineVehicle : drive
+User ..> AmphibiousVehicle : drive
+
+@enduml

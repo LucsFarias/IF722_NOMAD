@@ -1,0 +1,309 @@
+{
+  "requirements": "This model represents some entities of a course. \nWe know that courses have a name and a specific number of credits. Each course can have one or more professors, who have a name.\nProfessors could participate in any number of courses. For a course to exist, it must aggregate, at least, five students, where each student has a name. Students can be enrolled in any number of courses. Finally, students can be accommodated in dormitories, where each dormitory can have from one to four students. Besides, each dormitory has a price.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "critical",
+      "category": "class",
+      "message": "The 'credits' attribute in the 'Dormitory', 'Professor', and 'Student' classes has a different data type than specified in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Dormitory, Professor, Student",
+      "evidence": "Requirements state that courses have a specific number of credits, but do not specify the data type for other entities.",
+      "suggestions": [
+        "Change the data type of the 'credits' attribute to Integer in the 'Dormitory', 'Professor', and 'Student' classes."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-1",
+      "target_agent": "concept",
+      "description": "The 'credits' attribute in the 'Dormitory', 'Professor', and 'Student' classes has a different data type than specified in the requirements.",
+      "evidence_from_requirements": "Requirements state that courses have a specific number of credits, but do not specify the data type for other entities.",
+      "suggested_fix": "Change the data type of the 'credits' attribute to Integer in the 'Dormitory', 'Professor', and 'Student' classes."
+    },
+    {
+      "issue_id": "issue-2",
+      "severity": "critical",
+      "category": "class",
+      "message": "The 'price' attribute in the 'Professor' and 'Student' classes has a different data type than specified in the requirements.",
+      "responsible_agent": "concept",
+      "target": "Professor, Student",
+      "evidence": "Requirements state that dormitories have a price, but do not specify the data type for professors and students.",
+      "suggestions": [
+        "Change the data type of the 'price' attribute to Float in the 'Professor' and 'Student' classes."
+      ],
+      "metadata": {},
+      "is_critical": true,
+      "id": "issue-2",
+      "target_agent": "concept",
+      "description": "The 'price' attribute in the 'Professor' and 'Student' classes has a different data type than specified in the requirements.",
+      "evidence_from_requirements": "Requirements state that dormitories have a price, but do not specify the data type for professors and students.",
+      "suggested_fix": "Change the data type of the 'price' attribute to Float in the 'Professor' and 'Student' classes."
+    },
+    {
+      "issue_id": "issue-3",
+      "severity": "major",
+      "category": "relationship",
+      "message": "The aggregation relationship between 'Course' and 'Student' has a multiplicity of 5..*, but the requirements state that each course must aggregate at least five students.",
+      "responsible_agent": "relationship",
+      "target": "Course, Student",
+      "evidence": "Requirements state that for a course to exist, it must aggregate at least five students.",
+      "suggestions": [
+        "Change the multiplicity of the aggregation relationship between 'Course' and 'Student' to 5..*."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-3",
+      "target_agent": "relationship",
+      "description": "The aggregation relationship between 'Course' and 'Student' has a multiplicity of 5..*, but the requirements state that each course must aggregate at least five students.",
+      "evidence_from_requirements": "Requirements state that for a course to exist, it must aggregate at least five students.",
+      "suggested_fix": "Change the multiplicity of the aggregation relationship between 'Course' and 'Student' to 5..*."
+    },
+    {
+      "issue_id": "issue-4",
+      "severity": "minor",
+      "category": "class",
+      "message": "The 'credits' attribute in the 'Dormitory', 'Professor', and 'Student' classes has a confidence of 0.9, but it should be 1.0.",
+      "responsible_agent": "concept",
+      "target": "Dormitory, Professor, Student",
+      "evidence": "Requirements state that courses have a specific number of credits, but do not specify the confidence for other entities.",
+      "suggestions": [
+        "Change the confidence of the 'credits' attribute to 1.0 in the 'Dormitory', 'Professor', and 'Student' classes."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-4",
+      "target_agent": "concept",
+      "description": "The 'credits' attribute in the 'Dormitory', 'Professor', and 'Student' classes has a confidence of 0.9, but it should be 1.0.",
+      "evidence_from_requirements": "Requirements state that courses have a specific number of credits, but do not specify the confidence for other entities.",
+      "suggested_fix": "Change the confidence of the 'credits' attribute to 1.0 in the 'Dormitory', 'Professor', and 'Student' classes."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "Course",
+        "description": "Represents a course entity",
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "credits",
+            "data_type": "Integer",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Integer"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Dormitory",
+        "description": "Represents a dormitory entity",
+        "attributes": [
+          {
+            "name": "price",
+            "data_type": "Float",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Float"
+          },
+          {
+            "name": "students",
+            "data_type": "Integer",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "Integer"
+          },
+          {
+            "name": "credits",
+            "data_type": "integer",
+            "confidence": 0.9,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "integer"
+          },
+          {
+            "name": "professors",
+            "data_type": "array of Professor",
+            "confidence": 0.8,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "array of Professor"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Professor",
+        "description": "Represents a professor entity",
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "credits",
+            "data_type": "integer",
+            "confidence": 0.9,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "integer"
+          },
+          {
+            "name": "price",
+            "data_type": "float",
+            "confidence": 1.0,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "float"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Student",
+        "description": "Represents a student entity",
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "credits",
+            "data_type": "integer",
+            "confidence": 0.9,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "integer"
+          },
+          {
+            "name": "price",
+            "data_type": "float",
+            "confidence": 0.8,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "float"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Course",
+        "target": "Professor",
+        "relationship_type": "association",
+        "source_multiplicity": "1..*",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "Course",
+        "target": "Student",
+        "relationship_type": "aggregation",
+        "source_multiplicity": "5..*",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "Professor",
+        "target": "Course",
+        "relationship_type": "association",
+        "source_multiplicity": "*",
+        "target_multiplicity": "1..*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "Student",
+        "target": "Dormitory",
+        "relationship_type": "aggregation",
+        "source_multiplicity": "1..4",
+        "target_multiplicity": "*",
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {
+      "source": "concept_agent",
+      "requirements": "This model represents some entities of a course. \nWe know that courses have a name and a specific number of credits. Each course can have one or more professors, who have a name.\nProfessors could participate in any number of courses. For a course to exist, it must aggregate, at least, five students, where each student has a name. Students can be enrolled in any number of courses. Finally, students can be accommodated in dormitories, where each dormitory can have from one to four students. Besides, each dormitory has a price.",
+      "integrated": true
+    }
+  },
+  "metadata": {
+    "validator_notes": "The validator has identified several issues with the UML model that do not align with the requirements. The issues are related to data types, multiplicities, and confidence levels."
+  },
+  "summary": {
+    "issue_count": 4,
+    "critical_issue_count": 2,
+    "noncritical_issue_count": 2
+  },
+  "is_valid": false
+}

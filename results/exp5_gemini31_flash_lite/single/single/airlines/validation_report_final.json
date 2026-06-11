@@ -1,0 +1,193 @@
+{
+  "requirements": "Many different airlines can operate in different airports. \nAn airline has a name and an airport has a code and is in a city.\nEach airline has associated a cost for operating in a specific airport. \nBesides, the operation of an airline in a specific airport can be started and stopped at any time, and its operating cost can be updated at any time.\nThe relation between airport and airline contains a details class with the operating cost.",
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "severity": "medium",
+      "category": "relationship",
+      "message": "The OperationDetails class is incorrectly modeled as a standalone class associated with Airline and Airport, rather than an Association Class.",
+      "responsible_agent": "relationship",
+      "target": "OperationDetails",
+      "evidence": "The relation between airport and airline contains a details class with the operating cost.",
+      "suggestions": [
+        "Convert the relationship between Airline and Airport into an Association Class named 'OperationDetails'."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-1",
+      "target_agent": "relationship",
+      "description": "The OperationDetails class is incorrectly modeled as a standalone class associated with Airline and Airport, rather than an Association Class.",
+      "evidence_from_requirements": "The relation between airport and airline contains a details class with the operating cost.",
+      "suggested_fix": "Convert the relationship between Airline and Airport into an Association Class named 'OperationDetails'."
+    },
+    {
+      "issue_id": "issue-2",
+      "severity": "low",
+      "category": "attribute",
+      "message": "Methods are incorrectly defined as attributes in the intermediate model and PlantUML.",
+      "responsible_agent": "concept",
+      "target": "OperationDetails",
+      "evidence": "the operation of an airline in a specific airport can be started and stopped at any time, and its operating cost can be updated at any time.",
+      "suggestions": [
+        "Move 'updateCost', 'startOperation', and 'stopOperation' from the attributes section to the operations/methods section of the class definition."
+      ],
+      "metadata": {},
+      "is_critical": false,
+      "id": "issue-2",
+      "target_agent": "concept",
+      "description": "Methods are incorrectly defined as attributes in the intermediate model and PlantUML.",
+      "evidence_from_requirements": "the operation of an airline in a specific airport can be started and stopped at any time, and its operating cost can be updated at any time.",
+      "suggested_fix": "Move 'updateCost', 'startOperation', and 'stopOperation' from the attributes section to the operations/methods section of the class definition."
+    }
+  ],
+  "validated_model": {
+    "classes": [
+      {
+        "name": "Airline",
+        "description": null,
+        "attributes": [
+          {
+            "name": "name",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "Airport",
+        "description": null,
+        "attributes": [
+          {
+            "name": "code",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          },
+          {
+            "name": "city",
+            "data_type": "String",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "String"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      },
+      {
+        "name": "OperationDetails",
+        "description": null,
+        "attributes": [
+          {
+            "name": "operatingCost",
+            "data_type": "double",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "double"
+          },
+          {
+            "name": "isActive",
+            "data_type": "boolean",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "boolean"
+          },
+          {
+            "name": "updateCost(newCost",
+            "data_type": "double): void",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "double): void"
+          },
+          {
+            "name": "startOperation()",
+            "data_type": "void",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "void"
+          },
+          {
+            "name": "stopOperation()",
+            "data_type": "void",
+            "confidence": null,
+            "visibility": null,
+            "default_value": null,
+            "multiplicity": null,
+            "stereotype": null,
+            "source": "inferred",
+            "inferred_type": "void"
+          }
+        ],
+        "is_abstract": false,
+        "stereotype": null
+      }
+    ],
+    "relationships": [
+      {
+        "source": "airline",
+        "target": "operationdetail",
+        "relationship_type": "--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      },
+      {
+        "source": "airport",
+        "target": "operationdetail",
+        "relationship_type": "--",
+        "source_multiplicity": null,
+        "target_multiplicity": null,
+        "source_role": null,
+        "target_role": null,
+        "label": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "metadata": {
+    "validator_notes": "The current model uses two separate associations to a central class, which allows for 'OperationDetails' to exist without a specific Airline or Airport link, violating the requirement that it represents the relation between the two."
+  },
+  "summary": {
+    "issue_count": 2,
+    "critical_issue_count": 0,
+    "noncritical_issue_count": 2
+  },
+  "is_valid": true
+}

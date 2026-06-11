@@ -1,0 +1,37 @@
+@startuml
+
+class Make{
+name: String
+}
+
+class Model{
+name: String
+}
+
+Make "1" - "*" Model
+
+class Car{
+numberPlate: String
+}
+
+Model "1" - "*" Car
+
+class Seat{
+size: Real
+}
+
+class Wheel{
+diameter: Real
+}
+
+class Engine{
+power: Real
+}
+
+Seat "*" --* "1" Car
+Wheel "4" --* "1" Car
+Engine "1" --* "1" Car
+
+
+
+@enduml
